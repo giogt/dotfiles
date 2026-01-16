@@ -7,7 +7,7 @@ My config files divided in packages, that can be installed using [GNU stow](http
 Clone this repo under `~/.dotfiles`:
 
 ```sh
-git clone https://github.com/giogt/cli-config.git ~/.dotfiles
+git clone https://github.com/giogt/dotfiles.git ~/.dotfiles
 ```
 
 You can close it under a different directory, if you prefer, but `.dotfiles` is a good choice.
