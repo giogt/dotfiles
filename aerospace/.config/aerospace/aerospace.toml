@@ -1,0 +1,68 @@
+config-version = 2
+
+start-at-login = false
+# Available commands : https://nikitabobko.github.io/AeroSpace/commands
+after-startup-command = []
+
+accordion-padding = 30
+
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B"]
+
+[mode.main.binding]
+    ctrl-alt-period = 'layout floating tiling'
+    ctrl-alt-slash = 'layout tiles horizontal vertical'
+    ctrl-alt-comma = 'layout accordion horizontal vertical'
+
+    ctrl-alt-h = 'focus left'
+    ctrl-alt-j = 'focus down'
+    ctrl-alt-k = 'focus up'
+    ctrl-alt-l = 'focus right'
+
+    ctrl-alt-u = 'workspace 1'
+    ctrl-alt-i = 'workspace 2'
+    ctrl-alt-o = 'workspace 3'
+    ctrl-alt-p = 'workspace 4'
+    ctrl-alt-7 = 'workspace 5'
+    ctrl-alt-8 = 'workspace 6'
+    ctrl-alt-9 = 'workspace 7'
+    ctrl-alt-0 = 'workspace 8'
+    ctrl-alt-leftSquareBracket = "workspace A"
+    ctrl-alt-rightSquareBracket = "workspace B"
+
+    ctrl-alt-cmd-u = 'move-node-to-workspace 1'
+    ctrl-alt-cmd-i = 'move-node-to-workspace 2'
+    ctrl-alt-cmd-o = 'move-node-to-workspace 3'
+    ctrl-alt-cmd-p = 'move-node-to-workspace 4'
+    ctrl-alt-cmd-7 = 'move-node-to-workspace 5'
+    ctrl-alt-cmd-8 = 'move-node-to-workspace 6'
+    ctrl-alt-cmd-9 = 'move-node-to-workspace 7'
+    ctrl-alt-cmd-0 = 'move-node-to-workspace 8'
+    ctrl-alt-cmd-leftSquareBracket = "move-node-to-workspace A"
+    ctrl-alt-cmd-rightSquareBracket = "move-node-to-workspace B"
+
+    ctrl-alt-quote = 'exec-and-forget librewolf --new-window'
+    ctrl-alt-enter = 'exec-and-forget open -a /Applications/Ghostty.app --args --keybind=global:ctrl+alt+enter=new_window'
+
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'main'
+6 = 'main'
+7 = 'main'
+8 = 'main'
+A = ['secondary', 'main']
+B = ['secondary', 'main']
+
+[[on-window-detected]]
+run = "layout floating"
+check-further-callbacks = true
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Music'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Qobuz'
+run = 'move-node-to-workspace 4'

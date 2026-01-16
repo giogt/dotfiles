@@ -1,0 +1,7 @@
+nnoremap H ^
+onoremap H ^
+vnoremap H ^
+
+nnoremap L $
+onoremap L $
+vnoremap L $

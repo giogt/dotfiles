@@ -1,0 +1,7 @@
+[user]
+	name = giogt
+	email = giogt.dev@pm.me
+[core]
+	excludesfile = /Users/giogt/.gitignore_global
+[init]
+	defaultBranch = main

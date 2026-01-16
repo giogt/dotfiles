@@ -1,0 +1,183 @@
+##########################################################################
+#  NeoMutt configuration
+##########################################################################
+
+# import $my_user and $my_pass
+# if empty, neomutt will ask for them at startup
+source ~/.config/neomutt/keys
+
+# ======== #
+# Identity #
+# ======== #
+
+set realname = "Gio GT"
+set from="$my_user"
+
+# ============== #
+# IMAP Mailboxes #
+# ============== #
+
+set folder="imap://$my_user@127.0.0.1:1143/"
+set spoolfile="+INBOX"
+set postponed=+Drafts
+set record=+Sent
+set trash=+Trash
+
+mailboxes $spoolfile $postponed $record "+All Mail" "+Archive" $trash "+Folders/Accounts" "+Folders/Dev" "+Folders/Events" "+Folders/Finance" "+Folders/Food & drinks" "+Folders/Games" "+Folders/Health" "+Folders/Job" "+Folders/Newsletters" "+Folders/Orders & subscriptions" "+Folders/Personal" "+Folders/Proton" "+Folders/Travel"
+
+set mail_check=300 # seconds
+
+# ========= #
+# IMAP Auth #
+# ========+ #
+
+set imap_user = $my_user
+set imap_pass = $my_pass
+set ssl_starttls
+set imap_idle = yes
+
+# ==== #
+# SMTP #
+# ==== #
+
+set smtp_url=smtp://$my_user:$my_pass@127.0.0.1:1025
+
+# ======== #
+# Messages #
+# ======== #
+
+# attachments
+set mailcap_path=~/.config/neomutt/mailcap
+auto_view text/html
+alternative_order text/plain text/html
+bind attach <return> view-mailcap
+
+# press <enter> in the pager to view first attachment
+# useful for quickly seeing html
+macro pager <return> "v<return>q"
+
+# save attachments to directory
+macro attach s <save-entry><bol>~/downloads/<eol>
+
+# ========= #
+# Interface #
+# ========= #
+
+# index interface
+set mail_check_stats    # poll read/unread/etc counts
+set sidebar_visible
+set sidebar_width=25
+set sidebar_format="%B%* %S"
+set index_format="[%Z] %-10g %{%b %d}  %-20.20F  %s"
+# set index_format="[%Z] %-10y %{%b %d}  %-20.20F  %s"
+set status_format="-%f %V%>-"
+set sort=threads
+set sort_aux=date # date ascending order
+# set sort_aux=reverse-last-date-received # date descending order
+
+# pager interface
+set pager_index_lines=6                 # number of index lines to show
+set pager_context=3                     # lines of context
+set pager_stop                          # don't jump to the next email at end of current one
+
+# faster switching of mailboxes
+set sleep_time=0
+
+# go to the last entry instead of first unread entry
+# when loading a folder
+folder-hook . 'push <last-entry>'
+
+# ====== #
+# Colors #
+# ====== #
+
+# colors
+# color indicator     color16     color35     # selected item
+# color index         default     default ~A  # all messages
+color index         color35     default ~N  # new messages
+color index         color35     default ~U  # unread messages
+color index         color238    default ~D  # deleted messages
+color attachment    color238    default     # attachment headers
+color quoted        color240    default     # quoted emails
+color hdrdefault    green       default     # headers
+color header        color25     default "^(From|To|Cc|Bcc)"
+color header        color33     default "^(Subject)"
+color header        color238    default "^(Date)"
+# color status        default     default
+
+# urls
+color body color33 default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+
+# emails
+color body color33 default "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+
+
+# ======== #
+# Bindings #
+# ======== #
+
+# my Bindings
+
+# `g` is the default biding for group-reply. by binding it to `a` (reply to [a]ll), `g` becomes available
+# `a` is the default binding for create-alias. I rarely use it, and if I need it, I can always run it with :exec create-alias
+bind index,pager a group-reply
+
+bind index,pager g noop # allows to use gg
+bind pager gg top
+bind pager G bottom
+bind alias,index,browser,query gg first-entry
+bind alias,index,browser,query G last-entry
+
+# when reading a message, use j and k to scroll the message
+# without this binding, j and k will continue to go to the next/previous message
+# you can still use J and K for that
+bind pager j next-line
+bind pager k previous-line
+
+# bind index za collapse-thread
+# bind index D delete-thread
+# bind alias,index,pager,browser,query \Cd half-down
+# bind alias,index,pager,browser,query \Cu half-up
+
+# suppress "press any key to continue"
+unset wait_key
+
+# move email to archive
+# macro index,pager A ":set confirmappend=no delete=yes\n<tag-prefix><save-message>+Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+
+# notifications
+# unfortunately these don't have access to info like subjects or senders
+# set new_mail_command="notify-send 'New email' '%n new message(s)' &"
+
+# notmuch--
+# https://www.neomutt.org/feature/notmuch
+
+# search
+# `man notmuch-search-terms` for syntax
+# macro index,pager S "<vfolder-from-query>"
+
+# add/remove tags
+# use `-<TAG>` to remove tag
+# bind index,pager Y modify-labels
+
+# filter tags
+# bind index,pager Y modify-labels
+# macro index \Cy "<vfolder-from-query>tag:" "Limit view to tag"
+
+# b/c we're using notmuch virtual folders,
+# re-bind `c` from <change-folder>
+# bind index,pager c change-vfolder
+# --notmuch
+
+# shortcuts to folders (if using virtual folders, replace <change-folder> with <change-vfolder>)
+# macro index,pager gi "<change-folder>INBOX<Enter>"
+# macro index,pager ga "<change-folder>Archive<Enter>"
+
+# # this is experimental!
+# esc+5 to parse composed email as markdown and send as text/html
+# downside is then this will not have a text/plain part
+# but people are looking at this: <https://github.com/neomutt/neomutt/issues/587>
+# it also mangles quotes, you lose the indent depth
+# see also: <http://nosubstance.me/post/mutt-secret-sauce/>
+# and: <https://github.com/oblitum/dotfiles/blob/ArchLinux/.local/bin/MIMEmbellish>
+# macro compose \e5 "F nom convert \ny^T^Utext/html; charset=utf-8\n"

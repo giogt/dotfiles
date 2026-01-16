@@ -1,0 +1,32 @@
+[font]
+size = 14.0
+
+[font.bold]
+style = "Bold"
+
+[font.bold_italic]
+style = "Bold Italic"
+
+[font.italic]
+style = "Italic"
+
+[font.normal]
+family = "FiraCode Nerd Font"
+
+[keyboard]
+bindings = [
+    { key = "Left", mods = "Alt", chars = "\u001BB" },
+    { key = "Right", mods = "Alt", chars = "\u001BF" },
+    { key = "Left", mods = "Command", chars = "\u001BOH" },
+    { key = "Right", mods = "Command", chars = "\u001BOF" },
+]
+
+[window.dimensions]
+columns = 120
+lines = 40
+
+[window]
+padding.x = 25
+padding.y = 25
+decorations = "buttonless"
+opacity = 0.975

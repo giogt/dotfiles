@@ -1,0 +1,99 @@
+#
+# Appearance
+#
+
+
+# My favourite light and dark themes
+
+theme = light:Dayfox,dark:Duskfox
+
+# A list of themes I like 
+
+# theme = Afterglow
+# theme = Atom One Dark
+
+# catppuccin--
+# theme = Catppuccin Macchiato
+# theme = Catppuccin Mocha
+# --catppuccin
+
+# flexoki--
+# theme = Flexoki Dark
+# theme = Flexoki Light
+# --Flexoki
+
+# theme = Gruvbox Dark Hard
+
+# monokai--
+# theme = Monokai Pro Octagon
+# theme = Monokai Pro Spectrum
+# theme = Dimmed Monokai
+# --monokai
+
+# nightfox--
+# theme = Carbonfox
+# theme = Dawnfox
+# theme = Dayfox
+# theme = Duskfox
+# theme = Nightfox
+# theme = Nordfox
+# theme = Terafox
+# --nightfox
+
+# background-opacity = 0.975
+# background-blur = true
+
+# 
+# Font
+# 
+
+font-size = 13
+
+# 
+# Shell
+# 
+
+shell-integration = zsh
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+
+#
+# System
+#
+
+# quit-after-last-window-closed = true
+
+# 
+# Window
+# 
+
+window-padding-x = 15
+window-padding-y = 10
+
+window-width = 128
+window-height = 55
+
+# disable all window decorations (including titlebar and borders)
+#
+# Please note that, without window borders, you won't be able to move the window with the mouse,
+# not even while holding Cmd + Ctrl.
+# window-decoration = none
+
+# hide the titlebar without removing the native window borders or rounded corners
+macos-titlebar-style = hidden
+
+#
+# Key Bindings
+#
+
+macos-option-as-alt = true
+
+# by default, cmd+enter is bound to toggle full screen
+# unbind it by uncommenting the line below
+keybind = cmd+enter=unbind
+
+# keybind = option+left=unbind
+# keybind = option+right=unbind
+#
+keybind = global:ctrl+alt+enter=new_window

@@ -1,0 +1,5 @@
+# To configure git to use this file, run:
+# git config --global core.excludesfile ~/.gitignore_global
+
+.DS_Store
+.git
