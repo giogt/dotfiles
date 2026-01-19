@@ -62,6 +62,7 @@ cursor-style-blink = false
 # System
 #
 
+confirm-close-surface = false
 # quit-after-last-window-closed = true
 
 # 
