@@ -4,5 +4,5 @@
 	defaultBranch = main
 
 [include]
-    path = ~/.gitconfig-work
     path = ~/.gitconfig-personal
+    path = ~/.gitconfig-work
