@@ -6,7 +6,7 @@
 # @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon ../icons/yazi/icon_64x64.png
+# @raycast.icon ../icons/yazi/logo.png
 # @raycast.packageName Utilities
 
 # Documentation:
