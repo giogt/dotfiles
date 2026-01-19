@@ -40,35 +40,35 @@ end)
 -- Snap window
 -- ------------------------------------
 
-local snapWinMod = { "ctrl", "alt", "cmd" }
+local snapWinMod = { "ctrl", "alt" }
 local snapMarginX = 5
 local snapMarginY = 5
 
-hs.hotkey.bind(snapWinMod, "J", function()
-	local win = hs.window.focusedWindow()
-	local winFrame = win:frame()
-	local screenFrame = win:screen():frame()
-	winFrame.y = screenFrame.h - winFrame.h - snapMarginY
-	win:setFrame(winFrame)
-end)
-hs.hotkey.bind(snapWinMod, "K", function()
-	local win = hs.window.focusedWindow()
-	local winFrame = win:frame()
-	local screenFrame = win:screen():frame()
-	winFrame.y = screenFrame.y + snapMarginY
-	win:setFrame(winFrame)
-end)
-hs.hotkey.bind(snapWinMod, "H", function()
+hs.hotkey.bind(snapWinMod, "Left", function()
 	local win = hs.window.focusedWindow()
 	local winFrame = win:frame()
 	local screenFrame = win:screen():frame()
 	winFrame.x = screenFrame.x + snapMarginX
 	win:setFrame(winFrame)
 end)
-hs.hotkey.bind(snapWinMod, "L", function()
+hs.hotkey.bind(snapWinMod, "Right", function()
 	local win = hs.window.focusedWindow()
 	local winFrame = win:frame()
 	local screenFrame = win:screen():frame()
 	winFrame.x = screenFrame.w - winFrame.w - snapMarginX
+	win:setFrame(winFrame)
+end)
+hs.hotkey.bind(snapWinMod, "Up", function()
+	local win = hs.window.focusedWindow()
+	local winFrame = win:frame()
+	local screenFrame = win:screen():frame()
+	winFrame.y = screenFrame.y + snapMarginY
+	win:setFrame(winFrame)
+end)
+hs.hotkey.bind(snapWinMod, "Down", function()
+	local win = hs.window.focusedWindow()
+	local winFrame = win:frame()
+	local screenFrame = win:screen():frame()
+	winFrame.y = screenFrame.h - winFrame.h - snapMarginY
 	win:setFrame(winFrame)
 end)
