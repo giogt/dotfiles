@@ -72,7 +72,3 @@ hs.hotkey.bind(snapWinMod, "L", function()
 	winFrame.x = screenFrame.w - winFrame.w - snapMarginX
 	win:setFrame(winFrame)
 end)
-
-hs.hotkey.bind(snapWinMod, ",", function()
-	hs.window.focusedWindow():centerOnScreen()
-end)
