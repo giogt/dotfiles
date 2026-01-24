@@ -1,4 +1,6 @@
 git/.gitconfig-personal
 git/.gitconfig-work
+litecli/.config/litecli/history
+litecli/.config/litecli/log
 neomutt/.config/neomutt/keys
 zsh/.zsh.post/librewolf.zsh
