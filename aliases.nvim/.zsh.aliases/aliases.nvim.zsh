@@ -10,3 +10,10 @@ nvim_colorscheme_light() {
 nvim_colorscheme_dark() {
     sd "'colorscheme [^']+'" "'colorscheme duskfox'" ${NVIM_CONFIG_COLORSCHEME}
 }
+
+vdev() {
+  local selected_dir=$(fd . "${HOME}/dev" -d 3 -a --type directory --exclude .git --exclude node_modules/ --exclude target/ | fzf --preview 'ls -la {}' --height=40% --prompt="📁 ")
+  if [[ -n "${selected_dir}" && -d "${selected_dir}" ]]; then
+    nvim --cmd "cd ${selected_dir}"
+  fi
+}
