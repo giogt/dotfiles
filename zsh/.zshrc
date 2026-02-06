@@ -25,7 +25,8 @@ done
 # --------- #
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
 # zoxide
 eval "$(zoxide init zsh)"
