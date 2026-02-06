@@ -7,7 +7,7 @@
 
 theme = light:Dayfox,dark:Duskfox
 
-# A list of themes I like 
+# A list of themes I like
 
 # theme = Afterglow
 # theme = Atom One Dark
@@ -43,15 +43,15 @@ theme = light:Dayfox,dark:Duskfox
 # background-opacity = 0.975
 # background-blur = true
 
-# 
+#
 # Font
-# 
+#
 
 font-size = 13
 
-# 
+#
 # Shell
-# 
+#
 
 shell-integration = zsh
 shell-integration-features = no-cursor
@@ -65,14 +65,14 @@ cursor-style-blink = false
 confirm-close-surface = false
 # quit-after-last-window-closed = true
 
-# 
+#
 # Window
-# 
+#
 
 window-padding-x = 15
 window-padding-y = 10
 
-window-width = 128
+window-width = 160
 window-height = 55
 
 # disable all window decorations (including titlebar and borders)
