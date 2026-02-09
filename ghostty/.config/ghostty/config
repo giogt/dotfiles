@@ -54,7 +54,7 @@ font-size = 13
 #
 
 shell-integration = zsh
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor,sudo,ssh-terminfo,ssh-env
 cursor-style = block
 cursor-style-blink = false
 
