@@ -27,7 +27,10 @@ vim.keymap.set('n', 'tj', '<cmd>bfirst<cr>', { remap=true })
 vim.keymap.set('n', 'th', '<cmd>bprev<cr>', { remap=true })
 vim.keymap.set('n', 'tl', '<cmd>bnext<cr>', { remap=true })
 vim.keymap.set('n', 'td', '<cmd>bdelete<cr>', { remap=true })
-vim.keymap.set('n', '<leader>w', '<cmd>bdelete<cr>', { remap=true })
+vim.keymap.set('n', '<leader>c', '<cmd>bdelete<cr>', { remap=true })
+
+vim.keymap.set('n', '<leader>yp', '<cmd>let @+=expand("%:p")<cr>')
+vim.keymap.set('n', '<leader>yP', '<cmd>let @+=expand("%:p:h")<cr>')
 
 vim.keymap.set({ 'n', 'v'}, '<leader>fd', '<cmd>Yazi toggle<cr>')
 
