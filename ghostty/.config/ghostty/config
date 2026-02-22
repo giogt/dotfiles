@@ -53,10 +53,11 @@ font-size = 13
 # Shell
 #
 
-shell-integration = zsh
-shell-integration-features = no-cursor,sudo,ssh-terminfo,ssh-env
+copy-on-select = true
 cursor-style = block
 cursor-style-blink = false
+shell-integration = zsh
+shell-integration-features = no-cursor,sudo,ssh-terminfo,ssh-env
 
 #
 # System
