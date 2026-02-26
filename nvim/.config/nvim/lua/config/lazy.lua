@@ -56,7 +56,7 @@ require("lazy").setup({
 }, {
 	performance = {
 		rtp = {
-			-- disable netrw (built-in file manager)
+			-- disable netrw (built-in file explorer)
 			disabled_plugins = {
 				"netrw",
 				"netrwPlugin",
