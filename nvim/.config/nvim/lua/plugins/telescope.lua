@@ -48,12 +48,19 @@ return {
 		-- [[ Keymaps ]]
 
 		-- Open
-		vim.keymap.set("n", "<leader>o", function()
+
+		-- open file both with `<leader><leader>`, and with `<leader>of`
+		vim.keymap.set("n", "<leader><leader>", function()
 			builtin.find_files({ hidden = true, no_ignore = false, follow = true })
 		end, { desc = "Open file" })
-		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Open buffer" })
+		vim.keymap.set("n", "<leader>of", function()
+			builtin.find_files({ hidden = true, no_ignore = false, follow = true })
+		end, { desc = "Open file" })
+
+		vim.keymap.set("n", "<leader>ob", builtin.buffers, { desc = "Open buffer" })
 
 		-- Search
+
 		vim.keymap.set("n", "<leader>/b", function()
 			builtin.live_grep({
 				grep_open_files = true,
@@ -73,9 +80,11 @@ return {
 		vim.keymap.set("n", "<leader>/d", builtin.resume, { desc = "Search dialog (resume last)" })
 
 		-- Diagnostics
+
 		vim.keymap.set("n", "<leader>ds", builtin.diagnostics, { desc = "Search diagnostics" })
 
 		-- Neovim
+
 		vim.keymap.set("n", "<leader>nc", builtin.commands, { desc = "Search nvim commands" })
 		vim.keymap.set("n", "<leader>nh", builtin.help_tags, { desc = "Search nvim help" })
 		vim.keymap.set("n", "<leader>nk", builtin.keymaps, { desc = "Search nvim keymaps" })
@@ -96,15 +105,10 @@ return {
 				vim.keymap.set("n", "grd", builtin.lsp_definitions, { buffer = buf, desc = "Goto definition" })
 
 				-- Fuzzy find symbols (e.g., variables, functions, types, etc.)
+				vim.keymap.set("n", "<leader>os", builtin.lsp_document_symbols, { buffer = buf, desc = "Open symbols" })
 				vim.keymap.set(
 					"n",
-					"gO",
-					builtin.lsp_document_symbols,
-					{ buffer = buf, desc = "Open document symbols" }
-				)
-				vim.keymap.set(
-					"n",
-					"gW",
+					"<leader>oS",
 					builtin.lsp_dynamic_workspace_symbols,
 					{ buffer = buf, desc = "Open workspace symbols" }
 				)
