@@ -14,6 +14,7 @@ nvim_colorscheme_dark() {
 vdev() {
   local selected_dir=$(fd . "${HOME}/dev" -d 3 -a --type directory --exclude .git --exclude node_modules/ --exclude target/ | fzf --preview 'ls -la {}' --height=40% --prompt="📁 ")
   if [[ -n "${selected_dir}" && -d "${selected_dir}" ]]; then
+    builtin cd "${selected_dir}"
     nvim --cmd "cd ${selected_dir}"
   fi
 }
