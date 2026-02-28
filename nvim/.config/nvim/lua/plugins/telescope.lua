@@ -49,15 +49,11 @@ return {
 
 		-- Open
 
-		-- open file both with `<leader><leader>`, and with `<leader>of`
-		vim.keymap.set("n", "<leader><leader>", function()
-			builtin.find_files({ hidden = true, no_ignore = false, follow = true })
-		end, { desc = "Open file" })
 		vim.keymap.set("n", "<leader>of", function()
 			builtin.find_files({ hidden = true, no_ignore = false, follow = true })
 		end, { desc = "Open file" })
-
 		vim.keymap.set("n", "<leader>ob", builtin.buffers, { desc = "Open buffer" })
+		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Open buffer" })
 
 		-- Search
 
