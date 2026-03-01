@@ -2,11 +2,6 @@
 # Appearance
 #
 
-
-# My favourite light and dark themes
-
-theme = light:Dayfox,dark:Duskfox
-
 # A list of themes I like
 
 # theme = Afterglow
@@ -31,6 +26,7 @@ theme = light:Dayfox,dark:Duskfox
 # --monokai
 
 # nightfox--
+theme = light:Dayfox,dark:Duskfox
 # theme = Carbonfox
 # theme = Dawnfox
 # theme = Dayfox
@@ -39,6 +35,11 @@ theme = light:Dayfox,dark:Duskfox
 # theme = Nordfox
 # theme = Terafox
 # --nightfox
+
+# kanagawa--
+# theme = Kanagawa Wave
+# theme = Kanagawabones
+# --kanagawa
 
 # background-opacity = 0.975
 # background-blur = true
