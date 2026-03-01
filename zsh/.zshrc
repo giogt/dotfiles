@@ -78,12 +78,8 @@ fi
 # Extra initialization that needs to go after zim #
 # ----------------------------------------------- #
 
-# nvm
-export NVM_DIR="${HOME}/.nvm"
-[ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"  # This loads nvm
-[ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"  # This loads nvm bash_completion
-
 # execute zsh post scripts, if any
 for file in ${HOME}/.zsh.post/*.zsh(N); do
   source "$file"
 done
+
