@@ -14,10 +14,11 @@ vim.g.have_nerd_font = true
 vim.opt.termguicolors = true
 
 if vim.g.vscode then
-	-- VS Code extension is enabled => load VS Code config
+	-- VS Code extension is enabled
+	require("config.keymaps")
 	require("config.vscode")
 else
-	-- Load nvim config
+	-- VS Code extension is not enabled
 	require("config.options")
 	require("config.keymaps")
 	require("config.autocommands")
