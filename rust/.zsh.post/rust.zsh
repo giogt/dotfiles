@@ -1,4 +1,3 @@
-# Cargo
-export PATH="${PATH}:${HOME}/.cargo/bin"
+# Setup cargo
 . "${HOME}/.cargo/env"
 
