@@ -28,12 +28,32 @@ return {
 	},
 	config = function()
 		require("telescope").setup({
-			-- defaults = {
-			--   mappings = {
-			--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-			--   },
-			-- },
-			-- pickers = {}
+			defaults = {
+				-- Show hidden files in Live Grep dialogs
+				--
+				--  You need to include all the default options that are expected by the dialog,
+				--  otherwise it won't work properly.
+				--
+				--  See: https://github.com/nvim-telescope/telescope.nvim/blob/5255aa27c422de944791318024167ad5d40aad20/lua/telescope/config.lua#L707
+				vimgrep_arguments = {
+					"rg",
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--smart-case",
+					"--hidden", -- Include hidden files
+				},
+			},
+			pickers = {
+				-- Show hidden files in the Find Files dialog
+				find_files = {
+					hidden = true,
+					no_ignore = true,
+					follow = true,
+				},
+			},
 			extensions = {
 				["ui-select"] = { require("telescope.themes").get_dropdown() },
 			},
@@ -49,9 +69,7 @@ return {
 
 		-- Open
 
-		vim.keymap.set("n", "<leader>of", function()
-			builtin.find_files({ hidden = true, no_ignore = false, follow = true })
-		end, { desc = "Open file" })
+		vim.keymap.set("n", "<leader>of", builtin.find_files, { desc = "Open file" })
 		vim.keymap.set("n", "<leader>ob", builtin.buffers, { desc = "Open buffer" })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Open buffer" })
 
