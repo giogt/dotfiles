@@ -35,10 +35,6 @@ eval "$(zoxide init zsh)"
 # Dev tools #
 # --------- #
 
-# Rust
-export PATH="${PATH}:${HOME}/.cargo/bin"
-. "${HOME}/.cargo/env"
-
 # Jetbrains toolbox
 export PATH="${PATH}:/Users/giogt/Library/Application Support/JetBrains/Toolbox/scripts"
 
