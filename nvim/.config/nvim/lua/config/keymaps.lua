@@ -13,6 +13,13 @@ vim.keymap.set("o", "L", "$", { noremap = true })
 vim.keymap.set("n", "gh", "H", { noremap = true })
 vim.keymap.set("n", "gl", "L", { noremap = true })
 
+-- Buffers
+vim.keymap.set("n", "<leader>bj", "<cmd>bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("n", "<leader>bk", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>bn", "<cmd>enew<CR>", { desc = "New buffer" })
+vim.keymap.set("n", "<leader>bq", "<cmd>bdelete<CR>", { desc = "Quit (close) buffer" })
+vim.keymap.set("n", "<leader>bw", "<cmd>w<CR>", { desc = "Write (save) buffer" })
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
