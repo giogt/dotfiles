@@ -1,6 +1,6 @@
 # Jetbrains toolbox
 path=(
   $path
-  $HOME/Library/Application Support/JetBrains/Toolbox/scripts(N)
+  "${HOME}/Library/Application Support/JetBrains/Toolbox/scripts"(N)
 )
 
