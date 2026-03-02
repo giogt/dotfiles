@@ -35,9 +35,6 @@ eval "$(zoxide init zsh)"
 # Dev tools #
 # --------- #
 
-# Jetbrains toolbox
-export PATH="${PATH}:/Users/giogt/Library/Application Support/JetBrains/Toolbox/scripts"
-
 # Podman - Docker compatibility
 alias docker=podman
 export PODMAN_HOST="${HOME}/.local/share/containers/podman/machine/podman.sock"
