@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# --- Argument parsing ---
+
+if [[ $# -lt 1 ]]; then
+  echo "Usage: $(basename "$0") <directory> [session-name]" >&2
+  exit 1
+fi
+
+DIR="$1"
+
+if [[ ! -d "$DIR" ]]; then
+  echo "Error: '$DIR' is not a valid directory." >&2
+  exit 1
+fi
+
+# Resolve to absolute path
+DIR="$(cd "$DIR" && pwd)"
+
+# Default session name to the last component of the directory path
+SESSION="${2:-$(basename "$DIR")}"
+
+# --- Attach if session already exists ---
+
+if tmux has-session -t "$SESSION" 2>/dev/null; then
+  echo "Attaching to existing tmux session '$SESSION'..."
+  tmux attach-session -t "$SESSION"
+  exit 0
+fi
+
+# --- Create a new session ---
+
+echo "Creating new tmux session '$SESSION'..."
+
+# Create the session with the first window ("shell"), detached
+tmux new-session -d -s "$SESSION" -n "shell" -c "$DIR"
+
+# Create the second window ("nvim") and launch neovim
+tmux new-window -t "$SESSION" -n "nvim" -c "$DIR"
+tmux send-keys -t "$SESSION:nvim" "nvim ." Enter
+
+# Focus the nvim window before attaching
+tmux select-window -t "$SESSION:nvim"
+
+# Attach to the session
+tmux attach-session -t "$SESSION"
+
