@@ -4,6 +4,8 @@
 
 # A list of themes I like
 
+# theme = Ghostty Default Style Dark
+
 # theme = Afterglow
 # theme = Atom One Dark
 
@@ -26,11 +28,11 @@
 # --monokai
 
 # nightfox--
-theme = light:Dayfox,dark:Duskfox
+# theme = light:Dayfox,dark:Duskfox
 # theme = Carbonfox
 # theme = Dawnfox
 # theme = Dayfox
-# theme = Duskfox
+theme = Duskfox
 # theme = Nightfox
 # theme = Nordfox
 # theme = Terafox
@@ -40,6 +42,14 @@ theme = light:Dayfox,dark:Duskfox
 # theme = Kanagawa Wave
 # theme = Kanagawabones
 # --kanagawa
+
+# TokyoNight--
+# theme = TokyoNight
+# theme = TokyoNight Day
+# theme = TokyoNight Moon
+# theme = TokyoNight Night
+# theme = TokyoNight Storm
+# --TokyoNight
 
 # background-opacity = 0.975
 # background-blur = true
