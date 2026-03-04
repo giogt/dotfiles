@@ -6,9 +6,16 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
-		require("nvim-tree").setup({})
+		require("nvim-tree").setup({
+			git = {
+				enable = true,
+				ignore = false,
+			},
+		})
 	end,
 	keys = {
 		{ "<leader>e", ":NvimTreeToggle<CR>", desc = "Toggle NvimTree" },
+		{ "<leader>tf", ":NvimTreeFindFile<CR>", desc = "Reveal File in NvimTree" },
+		{ "<leader>tt", ":NvimTreeToggle<CR>", desc = "Toggle NvimTree" },
 	},
 }
