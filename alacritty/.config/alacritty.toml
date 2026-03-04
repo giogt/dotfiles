@@ -25,11 +25,11 @@ bindings = [
 ]
 
 [window.dimensions]
-columns = 150
-lines = 65
+columns = 160
+lines = 55
 
 [window]
-padding.x = 25
-padding.y = 25
+padding.x = 20
+padding.y = 20
 decorations = "buttonless"
 # opacity = 0.975
