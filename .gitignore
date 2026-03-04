@@ -4,3 +4,7 @@ litecli/.config/litecli/history
 litecli/.config/litecli/log
 neomutt/.config/neomutt/keys
 zsh/.zsh.post/librewolf.zsh
+
+# Exclude all files starting with `[draft].`
+__draft__*
+
