@@ -72,3 +72,29 @@ hs.hotkey.bind(snapWinMod, "Down", function()
 	winFrame.y = screenFrame.h - winFrame.h - snapMarginY
 	win:setFrame(winFrame)
 end)
+
+-- ------------------------------------
+-- Resize window
+-- ------------------------------------
+
+local resizeWinMod = { "ctrl", "alt" }
+hs.hotkey.bind(resizeWinMod, "D", function()
+	local win = hs.window.focusedWindow()
+	if not win then
+		return
+	end
+
+	-- Prompt user for dimensions in "WIDTHxHEIGHT" format (e.g., 1920x1080)
+	local button, input = hs.dialog.textPrompt("Resize Window", "Enter dimensions (WxH):", "1750x1250", "OK", "Cancel")
+
+	if button == "OK" then
+		local w, h = input:match("(%d+)x(%d+)")
+		if w and h then
+			-- Apply the new size while keeping the top-left corner fixed
+			win:setSize({ w = tonumber(w), h = tonumber(h) })
+			win:focus()
+		else
+			hs.alert.show("Invalid format. Use <width>x<height> (e.g. 800x600)")
+		end
+	end
+end)
