@@ -84,14 +84,24 @@ hs.hotkey.bind(resizeWinMod, "D", function()
 		return
 	end
 
-	-- Prompt user for dimensions in "WIDTHxHEIGHT" format (e.g., 1920x1080)
-	local button, input = hs.dialog.textPrompt("Resize Window", "Enter dimensions (WxH):", "1750x1250", "OK", "Cancel")
+	local button, input = hs.dialog.textPrompt("Resize Window", "Enter dimensions (WxH):", "1700x1200", "OK", "Cancel")
 
 	if button == "OK" then
 		local w, h = input:match("(%d+)x(%d+)")
 		if w and h then
-			-- Apply the new size while keeping the top-left corner fixed
-			win:setSize({ w = tonumber(w), h = tonumber(h) })
+			w, h = tonumber(w), tonumber(h)
+
+			local screen = win:screen():frame()
+
+			-- Calculate centered position
+			local x = screen.x + (screen.w - w) / 2
+			local y = screen.y + (screen.h - h) / 2
+
+			-- Clamp to screen bounds in case the window is larger than the screen
+			x = math.max(x, screen.x)
+			y = math.max(y, screen.y)
+
+			win:setFrame({ x = x, y = y, w = w, h = h })
 			win:focus()
 		else
 			hs.alert.show("Invalid format. Use <width>x<height> (e.g. 800x600)")
