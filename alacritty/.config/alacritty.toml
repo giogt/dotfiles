@@ -22,6 +22,7 @@ bindings = [
     { key = "Right", mods = "Alt", chars = "\u001BF" },
     { key = "Left", mods = "Command", chars = "\u001BOH" },
     { key = "Right", mods = "Command", chars = "\u001BOF" },
+    { key = "Back", mods = "Command", chars = "\u0015" },
 ]
 
 [window.dimensions]
