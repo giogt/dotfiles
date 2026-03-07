@@ -22,7 +22,10 @@ bindings = [
     { key = "Right", mods = "Alt", chars = "\u001BF" },
     { key = "Left", mods = "Command", chars = "\u001BOH" },
     { key = "Right", mods = "Command", chars = "\u001BOF" },
-    { key = "Back", mods = "Command", chars = "\u0015" },
+    { key = "Back", mods = "Command", chars = "\u001b[109;5u" },
+
+    # Explicitly set Ctrl+M as \r, so that it gets recognized by tmux
+    { key = "M", mods = "Control", chars = "\r" },
 ]
 
 [window.dimensions]
@@ -33,4 +36,5 @@ lines = 55
 padding.x = 20
 padding.y = 20
 decorations = "buttonless"
+option_as_alt = "Both"
 # opacity = 0.975
