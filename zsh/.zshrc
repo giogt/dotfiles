@@ -1,3 +1,7 @@
+# ------- #
+# zsh.pre #
+# ------- #
+
 # execute zsh pre scripts, if any
 for file in ${HOME}/.zsh.pre/*.zsh(N); do
   source "$file"
@@ -12,13 +16,6 @@ done
 # If we want emacs mode instead, we need to set it explicitly.
 set -o emacs
 
-# --------------------- #
-# Aliases and functions #
-# --------------------- #
-
-for file in ${HOME}/.zsh.aliases/*.zsh(N); do
-  source "$file"
-done
 
 # --------- #
 # CLI tools #
@@ -52,9 +49,18 @@ if [ -z "${INTELLIJ_ENVIRONMENT_READER}" ]; then
   source ${ZIM_HOME}/init.zsh
 fi
 
-# ----------------------------------------------- #
-# Extra initialization that needs to go after zim #
-# ----------------------------------------------- #
+
+# --------------------- #
+# Aliases and functions #
+# --------------------- #
+
+for file in ${HOME}/.zsh.aliases/*.zsh(N); do
+  source "$file"
+done
+
+# -------- #
+# zsh.post #
+# -------- #
 
 # execute zsh post scripts, if any
 for file in ${HOME}/.zsh.post/*.zsh(N); do
