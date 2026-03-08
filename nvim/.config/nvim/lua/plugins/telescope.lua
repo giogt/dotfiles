@@ -117,6 +117,7 @@ return {
 				vim.keymap.set("n", "grr", builtin.lsp_references, { buffer = buf, desc = "Goto references" })
 				vim.keymap.set("n", "gri", builtin.lsp_implementations, { buffer = buf, desc = "Goto implementation" })
 				vim.keymap.set("n", "grd", builtin.lsp_definitions, { buffer = buf, desc = "Goto definition" })
+				vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = buf, desc = "Goto definition" })
 
 				-- Fuzzy find symbols (e.g., variables, functions, types, etc.)
 				vim.keymap.set("n", "<leader>os", builtin.lsp_document_symbols, { buffer = buf, desc = "Open symbols" })
