@@ -11,7 +11,7 @@ local Theme = {
 
 -- Pick a default theme here
 --   The other themes won't be loaded, improving startup time.
-local _default_colorscheme = Theme.NIGHTFOX
+local _default_colorscheme = Theme.TOKYONIGHT
 
 -- NOTE: Most themes plugins have multiple schemes available.
 --  You can pick a different variant in the plugin definitions below.
@@ -80,7 +80,7 @@ return {
 			-- })
 			-- Available schemes:
 			--   tokyonight, tokyonight-night, tokyonight-storm, tokyonight-day, tokyonight-moon
-			vim.cmd.colorscheme("tokyonight-moon")
+			vim.cmd.colorscheme("tokyonight-night")
 		end,
 	},
 }
