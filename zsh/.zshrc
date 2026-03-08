@@ -25,7 +25,11 @@ set -o emacs
 source <(fzf --zsh)
 
 # zoxide
-eval "$(zoxide init zsh)"
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init zsh)"
+  alias cd="z"
+  alias cdi="zi"
+fi
 
 # --- #
 # Zim #
