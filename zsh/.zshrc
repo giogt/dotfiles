@@ -31,6 +31,9 @@ eval "$(zoxide init zsh)"
 # Zim #
 # --- #
 
+# suggested option in .zimrc to boost zsh autosuggestions performance
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
 # If INTELLIJ_ENVIRONMENT_READER is defined, don't initialize zim.
 #
 # On MacOS, GUI apps inherit a relatively empty environment. To ensure dev tools launched from the IDE are properly
