@@ -16,7 +16,6 @@ done
 # If we want emacs mode instead, we need to set it explicitly.
 set -o emacs
 
-
 # --------- #
 # CLI tools #
 # --------- #
@@ -48,7 +47,6 @@ if [ -z "${INTELLIJ_ENVIRONMENT_READER}" ]; then
   # Initialize modules.
   source ${ZIM_HOME}/init.zsh
 fi
-
 
 # --------------------- #
 # Aliases and functions #
