@@ -2,15 +2,68 @@
 
 set -euo pipefail
 
+# --- Functions ---
+
+show_help() {
+  cat << EOF
+Usage: $(basename "$0") [OPTIONS] [DIRECTORY]
+
+Create or attach to a tmux session with a shell and neovim window.
+
+ARGUMENTS:
+  DIRECTORY         Directory to work in (defaults to current directory)
+
+OPTIONS:
+  -s SESSION_NAME   Session name (defaults to directory basename)
+  -h                Display this help message
+
+EXAMPLES:
+  $(basename "$0") /path/to/project
+  $(basename "$0") -s my-session /path/to/project
+  $(basename "$0") /path/to/project -s my-session
+  $(basename "$0") -h
+EOF
+}
+
 # --- Argument parsing ---
 
-if [[ $# -lt 1 ]]; then
-  echo "Usage: $(basename "$0") <directory> [session-name]" >&2
-  exit 1
-fi
+DIR=""
+SESSION=""
 
-DIR="$1"
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      show_help
+      exit 0
+      ;;
+    -s)
+      if [[ -z "${2:-}" ]]; then
+        echo "Error: -s requires an argument." >&2
+        exit 1
+      fi
+      SESSION="$2"
+      shift 2
+      ;;
+    -*)
+      echo "Error: Unknown option '$1'." >&2
+      show_help >&2
+      exit 1
+      ;;
+    *)
+      if [[ -n "$DIR" ]]; then
+        echo "Error: Multiple directories specified." >&2
+        exit 1
+      fi
+      DIR="$1"
+      shift
+      ;;
+  esac
+done
 
+# Default DIR to current directory if not specified
+DIR="${DIR:-.}"
+
+# Validate directory
 if [[ ! -d "$DIR" ]]; then
   echo "Error: '$DIR' is not a valid directory." >&2
   exit 1
@@ -20,7 +73,7 @@ fi
 DIR="$(cd "$DIR" && pwd)"
 
 # Default session name to the last component of the directory path
-SESSION="${2:-$(basename "$DIR")}"
+SESSION="${SESSION:-$(basename "$DIR")}"
 
 # --- Attach if session already exists ---
 
