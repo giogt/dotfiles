@@ -14,7 +14,7 @@ style = "Italic"
 family = "FiraCode Nerd Font"
 
 [general]
-import = ["~/.config/alacritty/themes/duskfox.toml"]
+import = ["~/.config/alacritty/themes/tokyonight_night.toml"]
 
 [keyboard]
 bindings = [
