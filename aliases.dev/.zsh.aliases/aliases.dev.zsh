@@ -1,0 +1,1 @@
+alias de="dev-env"
