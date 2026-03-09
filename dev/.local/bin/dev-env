@@ -87,15 +87,16 @@ fi
 
 echo "Creating new tmux session '$SESSION'..."
 
-# Create the session with the first window ("shell"), detached
-tmux new-session -d -s "$SESSION" -n "shell" -c "$DIR"
+# Create the session, detached
+#  This creates the first window (0), that we are keeping to be used as a shell.
+tmux new-session -d -s "$SESSION" -c "$DIR"
 
-# Create the second window ("nvim") and launch neovim
-tmux new-window -t "$SESSION" -n "nvim" -c "$DIR"
-tmux send-keys -t "$SESSION:nvim" "nvim ." Enter
+# Create a second window (1) and launch nvim in it
+tmux new-window -t "$SESSION" -c "$DIR"
+tmux send-keys -t "$SESSION:1" "nvim ." Enter
 
 # Focus the nvim window before attaching
-tmux select-window -t "$SESSION:nvim"
+tmux select-window -t "$SESSION:1"
 
 # Attach to the session
 tmux attach-session -t "$SESSION"
