@@ -29,7 +29,7 @@ zmodule utility
 # Exposes git repository status information to prompts.
 zmodule git-info
 # Formats the path to the current working directory to be used by prompts
-# zmodule prompt-pwd
+zmodule prompt-pwd
 
 # A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
 #  Using my (giogt's) fork, which simplifies it further.
