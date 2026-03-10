@@ -69,6 +69,7 @@ return {
 
 		-- Open
 
+		vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Open file" })
 		vim.keymap.set("n", "<leader>of", builtin.find_files, { desc = "Open file" })
 		vim.keymap.set("n", "<leader>ob", builtin.buffers, { desc = "Open buffer" })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Open buffer" })

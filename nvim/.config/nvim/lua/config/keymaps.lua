@@ -19,6 +19,8 @@ vim.keymap.set("n", "<leader>bk", "<cmd>bprevious<CR>", { desc = "Previous buffe
 vim.keymap.set("n", "<leader>bn", "<cmd>enew<CR>", { desc = "New buffer" })
 vim.keymap.set("n", "<leader>bq", "<cmd>bdelete<CR>", { desc = "Quit (close) buffer" })
 vim.keymap.set("n", "<leader>bw", "<cmd>w<CR>", { desc = "Write (save) buffer" })
+-- Buffers (alternate keymaps)
+vim.keymap.set("n", "<leader>w", "<cmd>bdelete<CR>", { desc = "Close buffer" })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
