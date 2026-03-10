@@ -11,6 +11,9 @@ return {
 				enable = true,
 				ignore = false,
 			},
+			view = {
+				width = 35,
+			},
 		})
 	end,
 	keys = {

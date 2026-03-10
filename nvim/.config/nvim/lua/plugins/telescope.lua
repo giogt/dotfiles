@@ -45,6 +45,9 @@ return {
 					"--smart-case",
 					"--hidden", -- Include hidden files
 				},
+
+				-- Available options: shorten, smart, tail, truncate
+				path_display = { "smart" },
 			},
 			pickers = {
 				-- Show hidden files in the Find Files dialog
@@ -71,28 +74,37 @@ return {
 
 		vim.keymap.set("n", "<leader>f", builtin.find_files, { desc = "Open file" })
 		vim.keymap.set("n", "<leader>of", builtin.find_files, { desc = "Open file" })
-		vim.keymap.set("n", "<leader>ob", builtin.buffers, { desc = "Open buffer" })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "Open buffer" })
+		vim.keymap.set("n", "<leader>bo", builtin.buffers, { desc = "Open buffer" })
+		vim.keymap.set("n", "<leader>ob", builtin.buffers, { desc = "Open buffer" })
+		vim.keymap.set("n", "<leader>on", function()
+			builtin.find_files({ cwd = vim.fn.stdpath("config") })
+		end, { desc = "Open nvim config file" })
 
 		-- Search
 
-		vim.keymap.set("n", "<leader>/b", function()
+		vim.keymap.set("n", "<leader>/<leader>", function()
 			builtin.live_grep({
 				grep_open_files = true,
-				prompt_title = "Live grep in buffers",
+				prompt_title = "Search buffers (grep)",
 			})
-		end, { desc = "Search in buffers" })
-		vim.keymap.set("n", "<leader>//", function()
+		end, { desc = "Search buffers (grep)" })
+
+		vim.keymap.set("n", "<leader>/f", function()
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 				winblend = 10,
 				previewer = false,
+				prompt_title = "Search file (fuzzy)",
 			}))
-		end, { desc = "Search in current file [/]" })
+		end, { desc = "Search file (fuzzy)" })
 
-		vim.keymap.set("n", "<leader>/f", builtin.live_grep, { desc = "Search in files" })
-		vim.keymap.set("n", "<leader>/r", builtin.oldfiles, { desc = "Search recent files" })
+		vim.keymap.set("n", "<leader>/F", function()
+			builtin.live_grep({ prompt_title = "Search all files (grep)" })
+		end, { desc = "Search all files (grep)" })
+
+		vim.keymap.set("n", "<leader>/o", builtin.oldfiles, { desc = "Search old files" })
 		vim.keymap.set({ "n", "v" }, "<leader>/w", builtin.grep_string, { desc = "Search current word" })
-		vim.keymap.set("n", "<leader>/d", builtin.resume, { desc = "Search dialog (resume last)" })
+		vim.keymap.set("n", "<leader>//", builtin.resume, { desc = "Reopen last search dialog" })
 
 		-- Diagnostics
 
@@ -100,13 +112,13 @@ return {
 
 		-- Neovim
 
-		vim.keymap.set("n", "<leader>nc", builtin.commands, { desc = "Search nvim commands" })
-		vim.keymap.set("n", "<leader>nh", builtin.help_tags, { desc = "Search nvim help" })
-		vim.keymap.set("n", "<leader>nk", builtin.keymaps, { desc = "Search nvim keymaps" })
+		vim.keymap.set("n", "<leader>nc", builtin.commands, { desc = "Nvim commands" })
+		vim.keymap.set("n", "<leader>nh", builtin.help_tags, { desc = "Nvim help" })
+		vim.keymap.set("n", "<leader>nk", builtin.keymaps, { desc = "Nvim keymaps" })
 		vim.keymap.set("n", "<leader>no", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
-		end, { desc = "Open nvim config file" })
-		vim.keymap.set("n", "<leader>nt", builtin.builtin, { desc = "Search telescope commands" })
+		end, { desc = "Nvim config files" })
+		vim.keymap.set("n", "<leader>nt", builtin.builtin, { desc = "Nvim Telescope commands" })
 
 		-- This runs on LSP attach per buffer (see main LSP attach function in 'neovim/nvim-lspconfig' config for more info,
 		-- it is better explained there). This allows easily switching between pickers if you prefer using something else!
