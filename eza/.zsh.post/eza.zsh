@@ -1,4 +1,8 @@
-# eza (ls modern replacement)
+# [[ Eza config ]]
+
+# Eza is a ls modern replacement
+
+# eza aliases
 EZA_OPTS="--group-directories-first --icons=auto --git"
 alias e="eza -g ${EZA_OPTS}"
 alias el="eza -lg ${EZA_OPTS}"
@@ -11,9 +15,3 @@ alias l="eza -g ${EZA_OPTS}"
 alias ll="eza -lg ${EZA_OPTS}"
 alias la="eza -ag ${EZA_OPTS}"
 alias lla="eza -lag ${EZA_OPTS}"
-
-alias curl_post_json="curl -X POST -H \"Content-Type: application/json\" -d"
-
-weather() {
-  xh "wttr.in/$*"
-}

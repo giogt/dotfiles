@@ -11,3 +11,6 @@ dev-github() {
   fi
 }
 
+# dev tools aliases
+alias curl_post_json="curl -X POST -H \"Content-Type: application/json\" -d"
+
