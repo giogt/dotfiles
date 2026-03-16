@@ -49,14 +49,6 @@ if [ -z "${INTELLIJ_ENVIRONMENT_READER}" ]; then
   source ${ZIM_HOME}/init.zsh
 fi
 
-# --------------------- #
-# Aliases and functions #
-# --------------------- #
-
-for file in ${HOME}/.zsh.aliases/*.zsh(N); do
-  source "$file"
-done
-
 # -------- #
 # zsh.post #
 # -------- #
