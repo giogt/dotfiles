@@ -15,12 +15,16 @@ vim.opt.termguicolors = true
 
 if vim.g.vscode then
 	-- VS Code extension is enabled
-	require("config.keymaps")
-	require("config.vscode")
+	require("config.motions")
 else
 	-- VS Code extension is not enabled
+	require("config.clipboard")
+	require("config.diagnostics")
+	require("config.motions")
 	require("config.options")
-	require("config.keymaps")
-	require("config.autocommands")
+	require("config.search")
+	require("config.terminal")
+	require("config.windows")
+	-- keep lazy config as last
 	require("config.lazy")
 end
