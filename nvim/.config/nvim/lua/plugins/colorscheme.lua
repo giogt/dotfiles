@@ -4,9 +4,10 @@
 
 local Theme = {
 	CATPPUCCIN = 1,
-	KANAGAWA = 2,
-	NIGHTFOX = 3,
-	TOKYONIGHT = 4,
+	GRUVBOX = 2,
+	KANAGAWA = 3,
+	NIGHTFOX = 4,
+	TOKYONIGHT = 5,
 }
 
 -- Pick a default theme here
@@ -31,6 +32,22 @@ return {
 			--   catppuccin, catppuccin-latte, catppuccin-frappe,
 			--   catppuccin-macchiato, catppuccin-mocha
 			vim.cmd.colorscheme("catppuccin-mocha")
+		end,
+	},
+
+	-- Gruvbox Material
+	{
+		"sainnhe/gruvbox-material",
+		lazy = false,
+		priority = 1000,
+		cond = function()
+			return _default_colorscheme == Theme.GRUVBOX
+		end,
+		config = function()
+			-- Optionally configure and load the colorscheme
+			-- directly inside the plugin declaration.
+			vim.g.gruvbox_material_enable_italic = true
+			vim.cmd.colorscheme("gruvbox-material")
 		end,
 	},
 
