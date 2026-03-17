@@ -64,7 +64,7 @@ return {
 		end,
 	},
 
-	-- Tokionight
+	-- Tokyonight
 	{
 		"folke/tokyonight.nvim",
 		priority = 1000,
@@ -72,12 +72,14 @@ return {
 			return _default_colorscheme == Theme.TOKYONIGHT
 		end,
 		config = function()
+			-- Uncomment below to disable italic font for comments
 			-- ---@diagnostic disable-next-line: missing-fields
 			-- require("tokyonight").setup({
 			-- 	styles = {
-			-- 		comments = { italic = false }, -- Disable italics in comments
+			-- 		comments = { italic = false },
 			-- 	},
 			-- })
+
 			-- Available schemes:
 			--   tokyonight, tokyonight-night, tokyonight-storm, tokyonight-day, tokyonight-moon
 			vim.cmd.colorscheme("tokyonight-night")
