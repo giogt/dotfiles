@@ -19,7 +19,9 @@
 # theme = Flexoki Light
 # --Flexoki
 
+# theme = Gruvbox Dark
 # theme = Gruvbox Dark Hard
+# theme = Gruvbox Material
 
 # monokai--
 # theme = Monokai Pro Octagon
@@ -39,6 +41,7 @@
 # --nightfox
 
 # kanagawa--
+# theme = Kanagawa Dragon
 # theme = Kanagawa Wave
 # theme = Kanagawabones
 # --kanagawa
@@ -58,13 +61,14 @@ theme = TokyoNight
 # Font
 #
 
-font-size = 13.2
+font-size = 13.0
 
-# font-family = "FiraCode Nerd Font Mono"
 font-family = "JetBrainsMono NF"
 font-style = "Regular"
+
 font-style-bold = "Bold"
-font-style-italic = "Italic"
+# Use the `Light` style for italic, since I find it more readable than `Italic` in terminals
+font-style-italic = "Light"
 font-style-bold-italic = "Bold Italic"
 
 #
@@ -91,8 +95,8 @@ confirm-close-surface = false
 window-padding-x = 15
 window-padding-y = 10
 
-window-width = 160
-window-height = 55
+window-width = 150
+window-height = 50
 
 # disable all window decorations (including titlebar and borders)
 #
