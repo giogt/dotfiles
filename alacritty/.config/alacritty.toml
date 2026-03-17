@@ -6,15 +6,12 @@ family = "FiraCode Nerd Font Mono"
 style = "Regular"
 
 [font.bold]
-family = "FiraCode Nerd Font Mono"
-style = "Bold"
+style = "Medium"
 
 [font.italic]
-family = "FiraCode Nerd Font Mono"
 style = "Retina"
 
 [font.bold_italic]
-family = "FiraCode Nerd Font Mono"
 style = "SemiBold"
 
 [font.offset]
