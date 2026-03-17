@@ -31,9 +31,13 @@ zmodule git-info
 # Formats the path to the current working directory to be used by prompts
 zmodule prompt-pwd
 
+# The starship prompt (requires starship to be installed: brew install starship)
+zmodule starship/starship --name starship --no-submodules   
+
 # A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
 #  Using my (giogt's) fork, which simplifies it further.
-zmodule giogt/asciiship --name asciiship --branch giogt
+# zmodule giogt/asciiship --name asciiship --branch giogt
+
 # A fork of the Powerline-inspired agnoster theme.
 # zmodule eriner
 
@@ -47,7 +51,7 @@ zmodule zsh-users/zsh-completions --fpath src
 # after all modules that add completion definitions.
 zmodule completion
 # Use fzf for tab completion instead of the default zsh selection menu
-zmodule Aloxaf/fzf-tab
+# zmodule Aloxaf/fzf-tab
 
 #
 # Modules that must be initialized last
