@@ -44,6 +44,7 @@ return {
 					"--column",
 					"--smart-case",
 					"--hidden", -- Include hidden files
+					"--follow", -- Follow symlinks
 				},
 
 				-- Available options: shorten, smart, tail, truncate
