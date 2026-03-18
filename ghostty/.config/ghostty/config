@@ -67,9 +67,8 @@ font-family = "JetBrainsMono NF"
 font-style = "Regular"
 
 font-style-bold = "Bold"
-# Use the `Light` style for italic, since I find it more readable than `Italic` in terminals
-font-style-italic = "Light"
-font-style-bold-italic = "Bold Italic"
+font-style-italic = "Light" # more readable than `Italic`
+font-style-bold-italic = "ExtraBold" # more readable than `Bold Italic`
 
 #
 # Shell
