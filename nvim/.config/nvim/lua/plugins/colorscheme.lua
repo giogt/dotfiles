@@ -104,18 +104,24 @@ return {
 		cond = function()
 			return _default_colorscheme == Theme.TOKYONIGHT
 		end,
-		config = function()
-			-- Uncomment below to disable italic font for comments
-			-- ---@diagnostic disable-next-line: missing-fields
-			-- require("tokyonight").setup({
-			-- 	styles = {
-			-- 		comments = { italic = false },
-			-- 	},
-			-- })
+		opts = {
+			style = "night", -- moon, storm night, day
+			styles = {
+				comments = { italic = false },
+				keywords = { italic = false, bold = true },
+				-- Background styles. Can be "dark", "transparent" or "normal"
+				sidebars = "dark",
+				floats = "dark",
+			},
+			dim_inactive = true,
+			lualine_bold = true,
+		},
+		config = function(_, opts)
+			require("tokyonight").setup(opts)
 
 			-- Available schemes:
 			--   tokyonight, tokyonight-night, tokyonight-storm, tokyonight-day, tokyonight-moon
-			vim.cmd.colorscheme("tokyonight-night")
+			vim.cmd.colorscheme("tokyonight")
 		end,
 	},
 }
