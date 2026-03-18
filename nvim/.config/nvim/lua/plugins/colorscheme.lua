@@ -7,7 +7,8 @@ local Theme = {
 	GRUVBOX = 2,
 	KANAGAWA = 3,
 	NIGHTFOX = 4,
-	TOKYONIGHT = 5,
+	ROSEPINE = 5,
+	TOKYONIGHT = 6,
 }
 
 -- Pick a default theme here
@@ -78,6 +79,21 @@ return {
 			--   dark: duskfox
 			--   light: dayfox
 			vim.cmd.colorscheme("duskfox")
+		end,
+	},
+
+	-- Rosé Pine
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		cond = function()
+			return _default_colorscheme == Theme.ROSEPINE
+		end,
+		config = function()
+			require("rose-pine").setup({
+				variant = "main", -- auto, main, moon, or dawn
+			})
+			vim.cmd.colorscheme("rose-pine")
 		end,
 	},
 
