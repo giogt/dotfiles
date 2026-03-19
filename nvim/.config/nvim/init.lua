@@ -19,6 +19,7 @@ if vim.g.vscode then
 else
 	-- VS Code extension is not enabled
 	require("config.clipboard")
+	require("config.commands")
 	require("config.diagnostics")
 	require("config.motions")
 	require("config.options")
