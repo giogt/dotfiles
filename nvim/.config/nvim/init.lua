@@ -18,6 +18,9 @@ if vim.g.vscode then
 	require("config.motions")
 else
 	-- VS Code extension is not enabled
+
+	-- load theme configuration first, so that modules/plugins can read it
+	require("config.theme")
 	require("config.clipboard")
 	require("config.commands")
 	require("config.diagnostics")
@@ -26,6 +29,6 @@ else
 	require("config.search")
 	require("config.terminal")
 	require("config.windows")
-	-- keep lazy config as last
+	-- load Lazy plugin manager last
 	require("config.lazy")
 end

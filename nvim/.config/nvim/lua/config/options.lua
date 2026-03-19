@@ -3,10 +3,6 @@
 -- See `:help vim.o`
 --  For more options, see `:help option-list`
 
--- Default nvim background
---  For the actual theme config, see plugins/colorscheme.lua
-vim.o.background = "dark"
-
 -- Line numbers
 vim.o.number = true
 vim.o.relativenumber = true
