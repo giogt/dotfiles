@@ -1,5 +1,5 @@
 [font]
-size = 14
+size = 13
 
 [font.normal]
 family = "FiraCode Nerd Font"
@@ -34,7 +34,7 @@ bindings = [
 ]
 
 [window.dimensions]
-columns = 140
+columns = 155
 lines = 58
 
 [window]
