@@ -17,6 +17,7 @@ if vim.g.vscode then
 	-- VS Code extension is enabled
 	--  Load a minimal set of config
 	require("config.motions")
+	require("config.lazy-vscode")
 else
 	-- VS Code extension is not enabled
 	--  This is the main Neovim config
