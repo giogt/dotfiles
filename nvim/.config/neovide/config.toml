@@ -1,7 +1,7 @@
 neovim-bin = "/opt/homebrew/bin/nvim"
 
 [font]
-size = 13.5
+size = 13.0
 
 [font.normal]
 family = "FiraCode Nerd Font"
