@@ -41,10 +41,9 @@ local _themes = {
 			lazy = false,
 			priority = 1000,
 			config = function()
-				--  My favourite nightfox schemes
-				--   dark: duskfox
-				--   light: dayfox
-				vim.cmd.colorscheme("duskfox")
+				--   dark: nightfox, duskfox, nordfox, terafox, carbonfox
+				--   light: dayfox, dawnfox
+				vim.cmd.colorscheme("nightfox")
 			end,
 		},
 	},
@@ -84,7 +83,7 @@ local _themes = {
 			lazy = false,
 			priority = 1000,
 			opts = {
-				style = "moon", -- moon, storm night, day
+				style = "storm", -- moon, night, storm, day
 				styles = {
 					comments = { italic = false },
 					keywords = { italic = false, bold = true },
@@ -99,7 +98,7 @@ local _themes = {
 				require("tokyonight").setup(opts)
 
 				-- Available schemes:
-				--   tokyonight, tokyonight-night, tokyonight-storm, tokyonight-day, tokyonight-moon
+				--   tokyonight, tokyonight-moon, tokyonight-night, tokyonight-storm, tokyonight-day
 				--
 				-- NOTE: keep `tokyonight` here, and change the style in the `opts` above
 				vim.cmd.colorscheme("tokyonight")
