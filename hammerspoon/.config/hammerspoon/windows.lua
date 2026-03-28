@@ -84,7 +84,7 @@ hs.hotkey.bind(resizeWinMod, "D", function()
 		return
 	end
 
-	local button, input = hs.dialog.textPrompt("Resize Window", "Enter dimensions (WxH):", "1700x1200", "OK", "Cancel")
+	local button, input = hs.dialog.textPrompt("Resize Window", "Enter dimensions (WxH):", "1600x1150", "OK", "Cancel")
 
 	if button == "OK" then
 		local w, h = input:match("(%d+)x(%d+)")
@@ -94,8 +94,9 @@ hs.hotkey.bind(resizeWinMod, "D", function()
 			local screen = win:screen():frame()
 
 			-- Calculate centered position
-			local x = screen.x + (screen.w - w) / 2
-			local y = screen.y + (screen.h - h) / 2
+			local x = screen.x + (screen.w - w) / 2 -- horizontally centered
+			-- local y = screen.y + (screen.h - h) / 2 -- vertically centered
+			local y = 100 -- prefer the top area of the screen
 
 			-- Clamp to screen bounds in case the window is larger than the screen
 			x = math.max(x, screen.x)
