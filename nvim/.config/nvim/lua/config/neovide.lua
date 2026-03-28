@@ -10,6 +10,18 @@ vim.keymap.set("i", "<D-v>", "<C-R>+", { desc = "Paste in insert mode" })
 vim.keymap.set("v", "<D-v>", "<C-R>+", { desc = "Paste in visual mode" })
 vim.keymap.set("c", "<D-v>", "<C-R>+", { desc = "Paste in command mode" })
 
+-- Font
+-- Enable dynamic scaling with shortcuts
+vim.keymap.set("n", "<D-=>", function()
+	vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.025
+end)
+vim.keymap.set("n", "<D-->", function()
+	vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.025
+end)
+vim.keymap.set("n", "<D-0>", function()
+	vim.g.neovide_scale_factor = 1.0
+end)
+
 -- Disable animations
 vim.g.neovide_cursor_animation_length = 0
 vim.g.neovide_cursor_animate_in_insert_mode = false

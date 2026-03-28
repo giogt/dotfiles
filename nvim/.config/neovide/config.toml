@@ -1,0 +1,20 @@
+neovim-bin = "/opt/homebrew/bin/nvim"
+
+[font]
+size = 13.5
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "FiraCode Nerd Font"
+style = "SemiBold"
+
+[font.italic]
+family = "FiraCode Nerd Font"
+style = "Light"
+
+[font.bold_italic]
+family = "FiraCode Nerd Font"
+style = "Bold"
