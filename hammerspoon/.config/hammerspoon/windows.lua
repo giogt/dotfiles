@@ -93,14 +93,18 @@ hs.hotkey.bind(resizeWinMod, "D", function()
 
 			local screen = win:screen():frame()
 
-			-- Calculate centered position
+			-- Calculate window position
 			local x = screen.x + (screen.w - w) / 2 -- horizontally centered
-			-- local y = screen.y + (screen.h - h) / 2 -- vertically centered
-			local y = 100 -- prefer the top area of the screen
+			local y = screen.y + (screen.h - h) / 2 -- vertically centered
 
 			-- Clamp to screen bounds in case the window is larger than the screen
 			x = math.max(x, screen.x)
 			y = math.max(y, screen.y)
+
+			-- Prefer placing the window in the top area of the screen
+			if y > 100 then
+				y = 100
+			end
 
 			win:setFrame({ x = x, y = y, w = w, h = h })
 			win:focus()
