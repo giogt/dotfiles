@@ -38,7 +38,8 @@ columns = 155
 lines = 58
 
 [window]
-decorations = "buttonless"
+# decorations = "buttonless"
+decorations = "full"
 opacity = 1
 option_as_alt = "Both"
 padding.x = 20
