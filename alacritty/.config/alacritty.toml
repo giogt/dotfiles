@@ -3,13 +3,13 @@ size = 13
 
 [font.normal]
 family = "FiraCode Nerd Font"
-style = "Regular"
+style = "Medium"
 
 [font.bold]
 style = "SemiBold"
 
 [font.italic]
-style = "Light"
+style = "Retina"
 
 [font.bold_italic]
 style = "Bold"
