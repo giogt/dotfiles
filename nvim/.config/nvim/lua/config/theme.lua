@@ -85,7 +85,7 @@ local _themes = {
 			opts = {
 				style = "storm", -- moon, night, storm, day
 				styles = {
-					comments = { italic = false },
+					comments = { italic = true },
 					keywords = { italic = false, bold = true },
 					-- Background styles. Can be "dark", "transparent" or "normal"
 					sidebars = "dark",
