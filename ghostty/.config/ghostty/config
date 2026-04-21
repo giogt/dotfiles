@@ -61,14 +61,17 @@ theme = TokyoNight Storm
 # Font
 #
 
-font-size = 13.0
+font-size = 13.25
 
-font-family = "JetBrainsMono NF"
-font-style = "Regular"
+font-family = "FiraCode Nerd Font"
+font-style = "Medium"
 
-font-style-bold = "Bold"
-font-style-italic = "Light" # more readable than `Italic`
-font-style-bold-italic = "ExtraBold" # more readable than `Bold Italic`
+font-style-bold = "SemiBold"
+font-style-italic = "Retina" # more readable than `Italic`
+font-style-bold-italic = "Bold" # more readable than `Bold Italic`
+
+font-thicken = true
+font-thicken-strength = 1
 
 #
 # Shell
