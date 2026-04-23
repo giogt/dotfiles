@@ -93,13 +93,11 @@ end
 -- ------------------------------------
 
 for _, app in pairs(_apps) do
-	if not app.switchKey then
-		return
+	if app.switchKey then
+		hs.hotkey.bind({ "alt" }, app.switchKey, function()
+			switchToAppInCurrentDesktop(app.name)
+		end)
 	end
-
-	hs.hotkey.bind({ "alt" }, app.switchKey, function()
-		switchToAppInCurrentDesktop(app.name)
-	end)
 end
 
 -- ------------------------------------
