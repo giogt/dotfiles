@@ -29,10 +29,9 @@ hs.window.animationDuration = 0
 local addWindowBinding = function(mod, key, func)
 	hs.hotkey.bind(mod, key, function()
 		local win = hs.window.focusedWindow()
-		if not win then
-			return
+		if win ~= nil then
+			func(win)
 		end
-		func(win)
 	end)
 end
 
@@ -64,38 +63,45 @@ local hideOtherApps = function()
 	end
 end
 
--- Switch to the app with appName, only if the app has a window in the current
--- desktop. If the app is not running, launch it.
-local switchToAppInCurrentDesktop = function(appName)
+-- Switch to the app with appName
+local switchToApp = function(appName)
+	-- In Desktop & Dock settings, I keep the following toggle disabled: "When
+	-- switching to an application, switch to a Space with open windows for the
+	-- current application".
+	--
+	-- This behaviour works as intended on MacOS when switching to apps that are
+	-- not hidden. When an app is hidden, switching to it automatically unhides
+	-- the app and, if the current Space does not have any window for the app, it
+	-- automatically switches to a Space which does, even if the setting mentioned
+	-- above is disabled.
+	--
+	-- This is just how MacOS works and, as far as I know, there isn't a way to
+	-- change this behaviour.
+	--
+	-- The code below is a workaround. If the app we are switching to is hidden,
+	-- then we are unhiding it first without activating it, and sleep for a
+	-- little to make sure the app is fully unhidden before executing the next
+	-- steps.
 	local app = hs.application.get(appName)
-	if not app then
-		hs.application.open(appName)
-		return
-	end
-
-	local currentSpace = hs.spaces.focusedSpace()
-	for _, win in ipairs(app:allWindows()) do
-		local spaces = hs.spaces.windowSpaces(win)
-		if spaces then
-			for _, space in ipairs(spaces) do
-				if space == currentSpace then
-					win:focus()
-					hideOtherApps()
-					return
-				end
-			end
+	if app ~= nil then
+		if app:isHidden() then
+			app:unhide()
+			hs.timer.usleep(10000)
 		end
 	end
+
+	hs.application.open(appName)
+	hideOtherApps()
 end
 
 -- ------------------------------------
--- Switch windows
+-- Switch apps
 -- ------------------------------------
 
 for _, app in pairs(_apps) do
 	if app.switchKey then
 		hs.hotkey.bind({ "alt" }, app.switchKey, function()
-			switchToAppInCurrentDesktop(app.name)
+			switchToApp(app.name)
 		end)
 	end
 end
@@ -169,12 +175,7 @@ end)
 -- Set window dimensions
 -- ------------------------------------
 
-hs.hotkey.bind({ "ctrl", "alt" }, "D", function()
-	local win = hs.window.focusedWindow()
-	if not win then
-		return
-	end
-
+addWindowBinding({ "ctrl", "alt" }, "D", function(win)
 	local button, input =
 		hs.dialog.textPrompt("Window dimensions", "Enter dimensions (WxH):", "1600x1150", "OK", "Cancel")
 
@@ -185,7 +186,7 @@ hs.hotkey.bind({ "ctrl", "alt" }, "D", function()
 
 			setWindowFrame(win, { w = w, h = h })
 		else
-			hs.alert.show("Invalid format. Use <width>x<height> (e.g. 800x600)")
+			hs.alert.show("Invalid format. Use <width>x<height> (e.g. 1600x1150)")
 		end
 	end
 end)
@@ -197,9 +198,7 @@ end)
 addWindowBinding({ "alt" }, "S", function(win)
 	local appName = win:application():name()
 	local appConfig = _appsByName[appName]
-	if not appConfig then
-		return
+	if appConfig ~= nil then
+		setWindowFrame(win, appConfig.dimensions, appConfig.offset)
 	end
-
-	setWindowFrame(win, appConfig.dimensions, appConfig.offset)
 end)
