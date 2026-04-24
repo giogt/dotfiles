@@ -5,6 +5,9 @@ litecli/.config/litecli/log
 neomutt/.config/neomutt/keys
 zsh/.zsh.post/librewolf.zsh
 
-# Exclude all files starting with `[draft].`
-__draft__*
+# Exclude files starting with specific prefixes, such as `[draft].`
+\[draft\].*
+\[local\].*
+\[personal\].*
+\[work\].*
 
