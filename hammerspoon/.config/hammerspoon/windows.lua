@@ -4,11 +4,7 @@ local hs = hs
 -- Apps
 -- ------------------------------------
 
-local _apps = require("apps")
-local _appsByName = {}
-for _, app in pairs(_apps) do
-	_appsByName[app.name] = app
-end
+local apps = require("apps")
 
 -- ------------------------------------
 -- Config
@@ -16,11 +12,6 @@ end
 
 -- Disable window animations
 hs.window.animationDuration = 0
-
--- Start and use isolate mode
--- hs.window.highlight.ui.overlay = true
--- hs.window.highlight.start()
--- hs.window.highlight.toggleIsolate()
 
 -- ------------------------------------
 -- Utility functions
@@ -39,16 +30,18 @@ end
 -- Switch apps
 -- ------------------------------------
 
--- Switch to the app with appName
-local switchToApp = function(appName)
-	hs.application.open(appName)
+-- Switch to the app with the specified app identifier
+--
+-- Valid identifiers: name, bundleID, and full path (see Hammerspoon API)
+local switchToApp = function(appIdentifier)
+	hs.application.open(appIdentifier)
 end
 
 -- Register key bindings to switch to apps
-for _, app in pairs(_apps) do
+for _, app in pairs(apps) do
 	if app.switchKey then
 		hs.hotkey.bind({ "alt" }, app.switchKey, function()
-			switchToApp(app.name)
+			switchToApp(app.bundleID or app.name)
 		end)
 	end
 end
@@ -164,8 +157,8 @@ end)
 -- -----------------------------------------------------------------------------
 
 addBindingToFocusedWindow({ "alt" }, "S", function(win)
-	local appName = win:application():name()
-	local appConfig = _appsByName[appName]
+	local bundleID = win:application():bundleID()
+	local appConfig = apps[bundleID]
 	if appConfig ~= nil then
 		setWindowFrame(win, appConfig.dimensions, appConfig.offset)
 	end
