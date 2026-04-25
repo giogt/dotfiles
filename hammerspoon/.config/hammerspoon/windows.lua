@@ -56,8 +56,9 @@ local function switchToApp(appIdentifier)
 end
 
 -- Register key bindings to switch to apps
-for shortcutKey, appBundleId in pairs(config.app_shortcut_keys) do
-	hs.hotkey.bind({ "alt" }, shortcutKey, function()
+local switch_app_config = config.key_bindings.switch_app
+for shortcutKey, appBundleId in pairs(switch_app_config.keys) do
+	hs.hotkey.bind(switch_app_config.mod, shortcutKey, function()
 		switchToApp(appBundleId)
 	end)
 end
