@@ -1,13 +1,31 @@
 local hs = hs
 
--- ------------------------------------
--- Apps
--- ------------------------------------
-
-local apps = require("apps")
+local function log(s, ...)
+	print(string.format("windows.lua: " .. s, ...))
+end
 
 -- ------------------------------------
 -- Config
+-- ------------------------------------
+
+local function applyConfigOverride(config, override)
+	for k, v in pairs(override) do
+		if type(v) == "table" and type(config[k]) == "table" then
+			applyConfigOverride(config[k], v)
+		else
+			config[k] = v
+		end
+	end
+end
+
+local config = require("config")
+local configOverrideAvailable, configOverride = pcall(require, "config-override")
+if configOverrideAvailable then
+	applyConfigOverride(config, configOverride)
+end
+
+-- ------------------------------------
+-- Hammerspoon settings
 -- ------------------------------------
 
 -- Disable window animations
@@ -17,7 +35,7 @@ hs.window.animationDuration = 0
 -- Utility functions
 -- ------------------------------------
 
-local addBindingToFocusedWindow = function(mod, key, func)
+local function addBindingToFocusedWindow(mod, key, func)
 	hs.hotkey.bind(mod, key, function()
 		local win = hs.window.focusedWindow()
 		if win ~= nil then
@@ -33,17 +51,15 @@ end
 -- Switch to the app with the specified app identifier
 --
 -- Valid identifiers: name, bundleID, and full path (see Hammerspoon API)
-local switchToApp = function(appIdentifier)
+local function switchToApp(appIdentifier)
 	hs.application.open(appIdentifier)
 end
 
 -- Register key bindings to switch to apps
-for _, app in pairs(apps) do
-	if app.switchKey then
-		hs.hotkey.bind({ "alt" }, app.switchKey, function()
-			switchToApp(app.bundleID or app.name)
-		end)
-	end
+for shortcutKey, appBundleId in pairs(config.app_shortcut_keys) do
+	hs.hotkey.bind({ "alt" }, shortcutKey, function()
+		switchToApp(appBundleId)
+	end)
 end
 
 -- ------------------------------------
@@ -115,7 +131,7 @@ end)
 -- Window size and dimension
 -- ------------------------------------
 
-local setWindowFrame = function(win, dimensions, offset)
+local function setWindowFrame(win, dimensions, offset)
 	offset = offset or { x = 0, y = 0 }
 
 	local screen = win:screen():frame()
@@ -158,7 +174,7 @@ end)
 
 addBindingToFocusedWindow({ "alt" }, "S", function(win)
 	local bundleID = win:application():bundleID()
-	local appConfig = apps[bundleID]
+	local appConfig = config.apps[bundleID]
 	if appConfig ~= nil then
 		setWindowFrame(win, appConfig.dimensions, appConfig.offset)
 	end
