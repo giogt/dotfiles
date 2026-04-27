@@ -78,7 +78,8 @@ local _config = {
 			keys = {
 				J = "com.mitchellh.ghostty",
 				K = "com.brave.Browser",
-				L = "com.apple.MobileSMS",
+				L = "com.vscodium",
+				[";"] = "com.apple.MobileSMS",
 				U = "com.brave.Browser.app.jnpecgipniidlgicjocehkhajgdnjekh", -- Proton Mail
 				I = "com.brave.Browser.app.ojibjkjikcpjonjjngfkegflhmffeemk", -- Proton Calendar
 			},
