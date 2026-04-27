@@ -4,6 +4,10 @@
 
 local _config = {
 	apps = {
+		["app.zen-browser.zen"] = {
+			name = "Zen",
+			dimensions = { w = 2000, h = 1250 },
+		},
 		["com.apple.MobileSMS"] = {
 			name = "Messages",
 			dimensions = { w = 1392, h = 1080 },
@@ -33,6 +37,11 @@ local _config = {
 		["dev.zed.Zed"] = {
 			name = "Zed",
 			dimensions = { w = 1600, h = 1150 },
+		},
+		["org.mozilla.librewolf"] = {
+			name = "LibreWolf",
+			dimensions = { w = 1800, h = 1200 },
+			offset = { x = 0, y = 0 },
 		},
 		["us.zoom.xos"] = {
 			name = "zoom.us",
