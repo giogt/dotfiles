@@ -83,7 +83,7 @@ local _themes = {
 			lazy = false,
 			priority = 1000,
 			opts = {
-				style = "storm", -- moon, night, storm, day
+				style = "night", -- moon, night, storm, day
 				styles = {
 					comments = { italic = true },
 					keywords = { italic = false, bold = true },
