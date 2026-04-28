@@ -16,6 +16,7 @@ vim.opt.termguicolors = true
 if vim.g.vscode then
 	-- VS Code extension is enabled
 	--  Load a minimal set of config
+	require("config.clipboard")
 	require("config.motions")
 	require("config.lazy-vscode")
 else
