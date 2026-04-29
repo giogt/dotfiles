@@ -10,7 +10,7 @@
 	{
 		"key": "space",
 		"command": "whichkey.show",
-		"when": "!editorTextFocus"
+		"when": "!editorTextFocus && !inputFocus"
 	},
 	// Easy navigation in quick open/QuickPick
 	{
