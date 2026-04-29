@@ -1,0 +1,85 @@
+{
+  // DbCode
+  "dbcode.connections": [
+    {
+      "connectionId": "e5Dk6OwaMucM1LAB7eUzS",
+      "name": "pspace.dev@local",
+      "driver": "sqlite",
+      "color": "#8EA23B",
+      "connectionType": "socket",
+      "socket": "/Users/giogt/dev/local/giogt/pspace/target/sqlite.db",
+      "readOnly": false,
+      "postConnectionSqlType": "inline",
+      "driverOptions": {
+        "extensions": [],
+      },
+      "idleTimeout": 0,
+    },
+  ],
+  "dbcode.ai.inlineCompletion": false,
+  "dbcode.resultLocation": "panel",
+
+  // Editor
+  "editor.fontSize": 12,
+  "editor.fontFamily": "'FiraCode Nerd Font', 'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.lineNumbers": "relative",
+
+  // Files
+  "files.readonlyInclude": {
+    // mark Rust library sources as read-only
+    "**/.cargo/registry/src/**/*.rs": true,
+    "**/.cargo/git/checkouts/**/*.rs": true,
+    "**/lib/rustlib/src/rust/library/**/*.rs": true,
+  },
+
+  // Git
+  "git.autofetch": true,
+  "git.blame.editorDecoration.enabled": false,
+
+  // Rust Analyzer
+  "rust-analyzer.lens.implementations.enable": false,
+  "rust-analyzer.inlayHints.typeHints.enable": false,
+  "rust-analyzer.rustfmt.overrideCommand": [
+    "rustfmt",
+    "--config-path",
+    "${workspaceFolder}/rustfmt.toml",
+  ],
+
+  // Terminal
+  "terminal.integrated.fontSize": 12,
+
+  // VS Code Neovim extension
+  "vscode-neovim.neovimClean": false,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1,
+  },
+
+  // Window
+  "window.zoomLevel": 0.5,
+
+  // Workbench
+  "workbench.colorTheme": "Tokyo Night",
+  "workbench.editor.useModal": "off",
+  "workbench.tree.indent": 16,
+  "workbench.view.showQuietly": {
+    "workbench.panel.output": true,
+  },
+  "workbench.colorCustomizations": {
+    "[Tokyo Night]": {
+      "quickInput.background": "#1a1b26",
+      "quickInput.foreground": "#a9b1d6",
+      "quickInputList.focusBackground": "#292e42",
+      "quickInputList.focusForeground": "#c0caf5",
+      "quickInputTitle.background": "#1f2335",
+    },
+  },
+  
+  // Language-specific config
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+}
