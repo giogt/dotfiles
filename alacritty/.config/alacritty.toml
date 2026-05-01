@@ -23,7 +23,7 @@ x = 0
 y = 0
 
 [general]
-import = ["~/.config/alacritty/themes/tokyonight_storm.toml"]
+import = ["~/.config/alacritty/themes/tokyonight_night.toml"]
 
 [keyboard]
 bindings = [
