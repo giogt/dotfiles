@@ -61,7 +61,7 @@ theme = TokyoNight
 # Font
 #
 
-font-size = 13.25
+font-size = 13.5
 
 font-family = "FiraCode Nerd Font"
 font-style = "Medium"
