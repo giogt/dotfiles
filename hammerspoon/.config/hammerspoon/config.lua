@@ -24,7 +24,7 @@ local _config = {
 		},
 		["com.mitchellh.ghostty"] = {
 			name = "Ghostty",
-			dimensions = { w = 1392, h = 1080 },
+			dimensions = { w = 1480, h = 1000 },
 		},
 		["com.neovide.neovide"] = {
 			name = "Neovide",
