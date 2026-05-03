@@ -32,6 +32,9 @@ vim.o.updatetime = 250
 -- Decrease mapped sequence wait time
 vim.o.timeoutlen = 300
 
+-- Time to wait for key codes (e.g., escape, arrows)
+vim.o.ttimeoutlen = 10
+
 -- Configure how new splits should be opened
 vim.o.splitright = true
 vim.o.splitbelow = true
