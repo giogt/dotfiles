@@ -38,6 +38,10 @@ local _config = {
 			name = "Zed",
 			dimensions = { w = 1600, h = 1150 },
 		},
+		["org.alacritty"] = {
+			name = "Alacritty",
+			dimensions = { w = 1480, h = 1000 },
+		},
 		["org.mozilla.librewolf"] = {
 			name = "LibreWolf",
 			dimensions = { w = 1800, h = 1200 },
