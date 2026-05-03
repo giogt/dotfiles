@@ -70,8 +70,8 @@ font-style-bold = "SemiBold"
 font-style-italic = "Retina" # more readable than `Italic`
 font-style-bold-italic = "Bold" # more readable than `Bold Italic`
 
-font-thicken = true
-font-thicken-strength = 1
+# font-thicken = false
+# font-thicken-strength = 1
 
 #
 # Shell
