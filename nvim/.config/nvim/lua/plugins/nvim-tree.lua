@@ -11,6 +11,7 @@ return {
 				enable = true,
 				ignore = false,
 			},
+			sync_root_with_cwd = true,
 			view = {
 				width = 35,
 			},
