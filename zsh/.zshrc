@@ -24,6 +24,18 @@ set -o emacs
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source <(fzf --zsh)
 
+# --------- #
+# Dev tools #
+# --------- #
+
+eval "$(mise activate zsh)"
+
+path=(
+    $path
+    $HOME/.cargo/bin(N)
+    "$(go env GOPATH)/bin"(N)
+)
+
 # --- #
 # Zim #
 # --- #

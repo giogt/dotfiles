@@ -1,0 +1,8 @@
+[tools]
+
+go = "latest"
+jj = "latest"
+just = "latest"
+rust = "latest"
+
+"github:anomalyco/opencode" = "latest"
