@@ -1,8 +1,8 @@
 git/.gitconfig-personal
 git/.gitconfig-work
 jj/.config/jj/repos/**/
-litecli/.config/litecli/history
-litecli/.config/litecli/log
+mise/.config/litecli/history
+mise/.config/litecli/log
 neomutt/.config/neomutt/keys
 zsh/.zsh.post/librewolf.zsh
 

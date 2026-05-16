@@ -50,6 +50,7 @@ fi
 path=(
   $HOME/{,s}bin(N)
   $HOME/.local/{,s}bin(N)
+  /opt/homebrew/opt/make/libexec/gnubin(N)
   /opt/{homebrew,local}/{,s}bin(N)
   /usr/local/{,s}bin(N)
   $path
@@ -63,22 +64,6 @@ path=(
 #
 # -X disables mouse-wheel scrolling, remove it to enable it
 if [[ -z "$LESS" ]]; then
-  export LESS='-g -i -M -R -S -w -X -z-4'
+  export LESS='-g -i -M -R -S -w -z-4'
 fi
 
-#
-# User
-#
-
-# Set the default UID.
-#
-# This is used by other scripts (e.g., shell prompts) to check whether the
-# current user is the default user of your machine.
-export DEFAULT_UID=501
-
-# set the less input preprocessor to handle non-text files
-#
-# try both `lesspipe` and `lesspipe.sh` as either might exist on a system
-# if [[ -z "$LESSOPEN" ]] && (( $#commands[(i)lesspipe(|.sh)] )); then
-#   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
-# fi

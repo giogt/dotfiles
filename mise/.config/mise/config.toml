@@ -1,8 +1,50 @@
+[settings]
+disable_backends = ["asdf"] # improves security
+npm.package_manager = "bun"
+
 [tools]
 
+aube = "latest" # js package manager
+bat = "latest"
+bottom = "latest" # process/system monitor tui
+bun = "latest" # js package manager and runtime
+cowsay = "latest"
+deno = "latest" # js runtime
+fd = "latest"
 go = "latest"
-jj = "latest"
+jj = "latest" # jujutsu
+jq = "latest"
 just = "latest"
+hurl = "latest"
+lua = "latest"
+luajit = "latest"
+lua-language-server = "latest"
+make = "latest"
+node = "latest" # js runtime
+npm = "latest" # js package manager
+opencode = "latest"
 rust = "latest"
+rust-analyzer = "latest"
+starship = "latest"
+stylua = "latest"
+television = "latest"
+uv = "latest" # Python package and project manager
+xh = "latest"
+yazi = "latest"
+yt-dlp = "latest"
+zig = "latest"
 
-"github:anomalyco/opencode" = "latest"
+# NOTE: you need to manually give executable permissions to the `jj-starship` file to make it work
+"github:dmmulroy/jj-starship" = "latest"
+
+"npm:@earendil-works/pi-coding-agent" = "latest"
+
+"pipx:litecli" = "latest"
+
+[env]
+
+GOENV = "{{ env.HOME }}/.config/go/env"
+_.path = [
+    "~/.go/bin"
+]
+

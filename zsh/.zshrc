@@ -1,40 +1,10 @@
-# ------- #
-# zsh.pre #
-# ------- #
-
-# execute zsh pre scripts, if any
-for file in ${HOME}/.zsh.pre/*.zsh(N); do
-  source "$file"
-done
-
-#
 # ---------- #
 # Input mode #
 # ---------- #
 
 # Setting $EDITOR to nvim (see .zprofile) sets the shell's input mode to vi mode.
-# If we want emacs mode instead, we need to set it explicitly.
+# If we want emacs mode, we need to set it explicitly.
 set -o emacs
-
-# --------- #
-# CLI tools #
-# --------- #
-
-# fzf
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source <(fzf --zsh)
-
-# --------- #
-# Dev tools #
-# --------- #
-
-eval "$(mise activate zsh)"
-
-path=(
-    $path
-    $HOME/.cargo/bin(N)
-    "$(go env GOPATH)/bin"(N)
-)
 
 # --- #
 # Zim #
@@ -59,6 +29,56 @@ if [ -z "${INTELLIJ_ENVIRONMENT_READER}" ]; then
   fi
   # Initialize modules.
   source ${ZIM_HOME}/init.zsh
+fi
+
+# ---------- #
+# Init tools
+# ---------- #
+
+eval "$(mise activate zsh)"
+
+eval "$(fzf --zsh)"
+eval "$(jj util completion zsh)"
+eval "$(starship init zsh)"
+
+if (( ${+commands[zoxide]} )); then
+  # init zoxide and set alias to use it instead of `cd`
+  eval "$(zoxide init zsh)"
+  # comment the alias below if it breaks functionality
+  alias cd="z"
+fi
+
+# ------- #
+# Aliases
+# ------- #
+
+if (( ${+commands[eza]} )); then
+  # set eza aliases
+  EZA_OPTS="--group-directories-first --icons=auto --git"
+  alias e="eza -g ${EZA_OPTS}"
+  alias el="eza -lg ${EZA_OPTS}"
+  alias ea="eza -ag ${EZA_OPTS}"
+  alias ela="eza -lag ${EZA_OPTS}"
+
+  # Define aliases commonly used for `ls` to use `eza` instead
+  # NOTE: do not redefine `ls`, so that scripts relying on `ls` behaviour still work
+  alias l="eza -g ${EZA_OPTS}"
+  alias ll="eza -lg ${EZA_OPTS}"
+  alias la="eza -ag ${EZA_OPTS}"
+  alias lla="eza -lag ${EZA_OPTS}"
+fi
+
+if (( ${+commands[tmux]} )); then
+  # tmux aliases - attach
+  alias ta="tmux attach -t"
+
+  # tmux aliases - sessions
+  alias tl="tmux list-sessions"
+  alias tls="tmux list-sessions"
+  alias tn="tmux new-session -s"
+  alias tns="tmux new-session -s"
+  alias tk="tmux kill-session -t"
+  alias tks="tmux kill-session -t"
 fi
 
 # -------- #
