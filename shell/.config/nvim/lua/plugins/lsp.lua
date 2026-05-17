@@ -5,9 +5,9 @@ return { -- LSP Plugins
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		-- Note: `opts = {}` is the same as calling `require('mason').setup({})`
-		{ "mason-org/mason.nvim", opts = {} },
-		{ "mason-org/mason-lspconfig.nvim", opts = {} },
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		-- { "mason-org/mason.nvim", opts = {} },
+		-- { "mason-org/mason-lspconfig.nvim", opts = {} },
+		-- "WhoIsSethDaniel/mason-tool-installer.nvim",
 
 		-- Status updates for LSP.
 		{ "j-hui/fidget.nvim", opts = {} },
@@ -98,6 +98,9 @@ return { -- LSP Plugins
 		-- Special Lua Config, as recommended by neovim help docs
 		vim.lsp.config("lua_ls", {
 			on_init = function(client)
+				-- Disable formatting (formatting is done by stylua)
+				client.server_capabilities.documentFormattingProvider = false
+
 				if client.workspace_folders then
 					local path = client.workspace_folders[1].name
 					if
@@ -122,7 +125,9 @@ return { -- LSP Plugins
 				})
 			end,
 			settings = {
-				Lua = {},
+				Lua = {
+					format = { enable = false }, -- Disable formatting (formatting is done by stylua)
+				},
 			},
 		})
 		vim.lsp.enable("lua_ls")
