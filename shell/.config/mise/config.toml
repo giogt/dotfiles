@@ -43,6 +43,8 @@ zig = "latest"
 
 "aqua:YS-L/csvlens" = "latest" # CSV viewer TUI
 
+"cargo:lazyjj" = "latest"
+
 # NOTE: you need to manually give executable permissions to the `jj-starship` file to make it work
 "github:dmmulroy/jj-starship" = "latest"
 
