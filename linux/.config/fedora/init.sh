@@ -3,7 +3,7 @@
 cd ~
 
 # install base packages
-sudo dnf install -y eza fzf git nvim stow which zoxide zsh
+sudo dnf install -y fzf git nvim stow which zoxide zsh
 
 # install zimfw
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
@@ -21,6 +21,7 @@ stow -d ~/.dotfiles shell
 
 # install terminfo for the Ghostty terminal emulator
 tic -x ~/.config/terminfo/ghostty.terminfo
+# tic -x ~/.dotfiles/shell/.config/terminfo/ghostty.terminfo
 
 # change shell to zsh
 sudo chsh -s /usr/bin/zsh giogt
