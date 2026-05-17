@@ -31,37 +31,37 @@ fi
 # Init and config shell tools
 #
 
-eval "$(mise activate zsh)"
+# mise must be initialized first, if available
+if (( ${+commands[mise]} )); then
+  eval "$(mise activate zsh)"
+fi
 
-# commands installed with mise
-eval "$(jj util completion zsh)"
-eval "$(starship init zsh)"
-
-# commands not installed with mise
-# => check if they are available before initializing them
 if (( ${+commands[fzf]} )); then
   eval "$(fzf --zsh)"
+fi
+if (( ${+commands[jj]} )); then
+  eval "$(jj util completion zsh)"
+fi
+if (( ${+commands[starship]} )); then
+  eval "$(starship init zsh)"
 fi
 if (( ${+commands[zoxide]} )); then
   eval "$(zoxide init zsh)"
 fi
 
 #
-# load additional config, such as aliases, functions, etc.
+# Load additional config
 #
 
-source "$HOME/.config/zsh/core.zsh"
-source "$HOME/.config/zsh/dev.zsh"
+source_if_exists() {
+  if [[ -f "$1" ]]; then
+    source "$1"
+  fi
+}
+
+source_if_exists "$HOME/.config/zsh/core.zsh"
+source_if_exists "$HOME/.config/zsh/dev.zsh"
+
 if [[ "$OSTYPE" == darwin* ]]; then
-  source "$HOME/.config/zsh/macos.zsh"
+  source_if_exists "$HOME/.config/zsh/macos.zsh"
 fi
-
-#
-# zsh.post
-#
-
-# execute zsh post scripts, if any
-for file in ${HOME}/.zsh.post/*.zsh(N); do
-  source "$file"
-done
-

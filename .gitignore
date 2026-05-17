@@ -1,11 +1,10 @@
+dev/.config/mise/github_tokens.toml
+dev/.config/litecli/history
+dev/.config/litecli/log
 neomutt/.config/neomutt/keys
 shell/.config/jj/repos/**/
-shell/.config/litecli/history
-shell/.config/litecli/log
-shell/.config/mise/github_tokens.toml
 shell/.gitconfig-personal
 shell/.gitconfig-work
-shell/.zsh.post/librewolf.zsh
 
 # Exclude files starting with specific prefixes, such as `[draft].`
 \[draft\].*

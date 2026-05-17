@@ -21,9 +21,9 @@ You can then `cd ~`, and install the config for each of the included packages
 as follows: ```sh stow -d .dotfiles ${package_name} ```
 
 where `${package_name}` is one of the project top-level directories (e.g.,
-`common`, `linux`, `macos`, `shell`). I'm not sure why, but when I tried `stow -d ~/.dotfiles
-${package_name}`, I didn't get auto-completion for package names, that's why I
-suggest to `cd ~` first.
+`common`, `dev`, `linux`, `macos`, `shell`). I'm not sure why, but when I tried
+`stow -d ~/.dotfiles ${package_name}`, I didn't get auto-completion for package
+names, that's why I suggest to `cd ~` first.
 
 If you get an error saying that the target files and/or directories already
 exist, remove them first. You should consider making a backup of the current
