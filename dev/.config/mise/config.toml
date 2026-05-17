@@ -20,7 +20,7 @@ just = "latest" # just a command runner
 hurl = "latest" # run and test HTTP requests
 lazygit = "latest" # git TUI
 lua = "latest"
-luajit = "latest"
+# luajit = "latest"
 lua-language-server = "latest"
 make = "latest"
 node = "latest" # js runtime
@@ -38,13 +38,13 @@ tree-sitter = "latest"
 vale = "latest" # linter for prose (Markdown, AsciiDoc, reStructuredText, HTML, etc.)
 uv = "latest" # Python package and project manager
 watchexec = "latest"
-xcbeautify = "latest" # format swift and xcodebuild command output
+# xcbeautify = "latest" # format swift and xcodebuild command output
 xh = "latest" # HTTP client CLI (curl modern alternative)
 yazi = "latest" # terminal file manager
 yt-dlp = "latest" # YouTube downloader
 zig = "latest"
 
-"aqua:YS-L/csvlens" = "latest" # CSV viewer TUI
+# "aqua:YS-L/csvlens" = "latest" # CSV viewer TUI
 
 "cargo:jj-starship" = "latest"
 "cargo:lazyjj" = "latest"
