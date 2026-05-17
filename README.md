@@ -21,7 +21,7 @@ You can then `cd ~`, and install the config for each of the included packages
 as follows: ```sh stow -d .dotfiles ${package_name} ```
 
 where `${package_name}` is one of the project top-level directories (e.g.,
-`nvim`, `zsh`). I'm not sure why, but when I tried `stow -d ~/.dotfiles
+`nvim`, `shell`). I'm not sure why, but when I tried `stow -d ~/.dotfiles
 ${package_name}`, I didn't get auto-completion for package names, that's why I
 suggest to `cd ~` first.
 

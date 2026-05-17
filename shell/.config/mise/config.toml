@@ -16,6 +16,7 @@ jj = "latest" # jujutsu
 jq = "latest"
 just = "latest"
 hurl = "latest"
+lazygit = "latest"
 lua = "latest"
 luajit = "latest"
 lua-language-server = "latest"
@@ -23,23 +24,32 @@ make = "latest"
 node = "latest" # js runtime
 npm = "latest" # js package manager
 opencode = "latest"
+ripgrep = "latest"
 rust = "latest"
 rust-analyzer = "latest"
+sd = "latest"
 starship = "latest"
 stylua = "latest"
 television = "latest"
+tree-sitter = "latest"
+vale = "latest" # linter for prose (Markdown, AsciiDoc, reStructuredText, HTML, etc.)
 uv = "latest" # Python package and project manager
+watchexec = "latest"
+xcbeautify = "latest" # format swift and xcodebuild command output
 xh = "latest"
 yazi = "latest"
 yt-dlp = "latest"
 zig = "latest"
+
+"aqua:YS-L/csvlens" = "latest" # CSV viewer TUI
 
 # NOTE: you need to manually give executable permissions to the `jj-starship` file to make it work
 "github:dmmulroy/jj-starship" = "latest"
 
 "npm:@earendil-works/pi-coding-agent" = "latest"
 
-"pipx:litecli" = "latest"
+"pipx:hf" = "latest" # Hugging Face CLI
+"pipx:litecli" = "latest" # SQLite CLI
 
 [env]
 

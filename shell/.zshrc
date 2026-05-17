@@ -1,14 +1,10 @@
-# ---------- #
-# Input mode #
-# ---------- #
-
 # Setting $EDITOR to nvim (see .zprofile) sets the shell's input mode to vi mode.
 # If we want emacs mode, we need to set it explicitly.
 set -o emacs
 
-# --- #
-# Zim #
-# --- #
+#
+# Zim
+#
 
 # If INTELLIJ_ENVIRONMENT_READER is defined, don't initialize zim.
 #
@@ -31,59 +27,38 @@ if [ -z "${INTELLIJ_ENVIRONMENT_READER}" ]; then
   source ${ZIM_HOME}/init.zsh
 fi
 
-# ---------- #
-# Init tools
-# ---------- #
+#
+# Init and config shell tools
+#
 
 eval "$(mise activate zsh)"
 
-eval "$(fzf --zsh)"
+# commands installed with mise
 eval "$(jj util completion zsh)"
 eval "$(starship init zsh)"
 
+# commands not installed with mise
+# => check if they are available before initializing them
+if (( ${+commands[fzf]} )); then
+  eval "$(fzf --zsh)"
+fi
 if (( ${+commands[zoxide]} )); then
-  # init zoxide and set alias to use it instead of `cd`
   eval "$(zoxide init zsh)"
-  # comment the alias below if it breaks functionality
-  alias cd="z"
 fi
 
-# ------- #
-# Aliases
-# ------- #
+#
+# load additional config, such as aliases, functions, etc.
+#
 
-if (( ${+commands[eza]} )); then
-  # set eza aliases
-  EZA_OPTS="--group-directories-first --icons=auto --git"
-  alias e="eza -g ${EZA_OPTS}"
-  alias el="eza -lg ${EZA_OPTS}"
-  alias ea="eza -ag ${EZA_OPTS}"
-  alias ela="eza -lag ${EZA_OPTS}"
-
-  # Define aliases commonly used for `ls` to use `eza` instead
-  # NOTE: do not redefine `ls`, so that scripts relying on `ls` behaviour still work
-  alias l="eza -g ${EZA_OPTS}"
-  alias ll="eza -lg ${EZA_OPTS}"
-  alias la="eza -ag ${EZA_OPTS}"
-  alias lla="eza -lag ${EZA_OPTS}"
+source "$HOME/.config/zsh/core.zsh"
+source "$HOME/.config/zsh/dev.zsh"
+if [[ "$OSTYPE" == darwin* ]]; then
+  source "$HOME/.config/zsh/macos.zsh"
 fi
 
-if (( ${+commands[tmux]} )); then
-  # tmux aliases - attach
-  alias ta="tmux attach -t"
-
-  # tmux aliases - sessions
-  alias tl="tmux list-sessions"
-  alias tls="tmux list-sessions"
-  alias tn="tmux new-session -s"
-  alias tns="tmux new-session -s"
-  alias tk="tmux kill-session -t"
-  alias tks="tmux kill-session -t"
-fi
-
-# -------- #
-# zsh.post #
-# -------- #
+#
+# zsh.post
+#
 
 # execute zsh post scripts, if any
 for file in ${HOME}/.zsh.post/*.zsh(N); do

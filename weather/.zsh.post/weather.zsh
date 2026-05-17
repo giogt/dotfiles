@@ -1,3 +1,0 @@
-weather() {
-  xh "wttr.in/$*"
-}

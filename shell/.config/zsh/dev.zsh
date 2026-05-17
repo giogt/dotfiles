@@ -1,3 +1,8 @@
+#
+# dev aliases & functions
+#
+
+alias curl-post-json="curl -X POST -H \"Content-Type: application/json\" -d"
 alias de="dev-env"
 
 dev-github() {
@@ -10,7 +15,4 @@ dev-github() {
     dev-env
   fi
 }
-
-# dev tools aliases
-alias curl_post_json="curl -X POST -H \"Content-Type: application/json\" -d"
 

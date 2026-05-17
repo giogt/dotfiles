@@ -2,7 +2,9 @@
 # Homebrew
 #
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ "$OSTYPE" == darwin* ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 #
 # Browser
