@@ -56,3 +56,19 @@ weather() {
   xh "wttr.in/$*"
 }
 
+terminfo-ghostty-export() {
+  if (( $# == 0 )); then
+    echo "Usage: terminfo-ghostty-export <file>" >&2
+    return 1
+  fi
+  infocmp -x xterm-ghostty > $1
+}
+
+terminfo-ghostty-import() {
+  if (( $# == 0 )); then
+    echo "Usage: terminfo-ghostty-import <file>" >&2
+    return 1
+  fi
+  tic -x $1
+}
+
