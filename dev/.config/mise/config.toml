@@ -12,6 +12,7 @@ cowsay = "latest"
 deno = "latest" # js runtime
 eza = "latest" # list files and directories (ls modern alternative)
 fd = "latest" # find entries in your filesystem (find modern alternative)
+fzf = "latest" # fuzzy finder
 go = "latest"
 jj = "latest" # jujutsu
 jq = "latest" # JSON processor
