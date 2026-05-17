@@ -21,7 +21,7 @@ You can then `cd ~`, and install the config for each of the included packages
 as follows: ```sh stow -d .dotfiles ${package_name} ```
 
 where `${package_name}` is one of the project top-level directories (e.g.,
-`nvim`, `shell`). I'm not sure why, but when I tried `stow -d ~/.dotfiles
+`common`, `linux`, `macos`, `shell`). I'm not sure why, but when I tried `stow -d ~/.dotfiles
 ${package_name}`, I didn't get auto-completion for package names, that's why I
 suggest to `cd ~` first.
 
@@ -39,9 +39,7 @@ page](https://docs.brew.sh/Brew-Bundle-and-Brewfile) for details.
 I am using `brew bundle -g` (or `--global`), which expects the `Brewfile` to be
 located at `~/.Brewfile`.
 
-To use the `Brewfile` in this repo:
-
-```sh rm ~/.Brewfile ln -s ~/.cli-config/.Brewfile ~ ```
+The file is included in the `macos` stow package.
 
 > **IMPORTANT**
 > 
