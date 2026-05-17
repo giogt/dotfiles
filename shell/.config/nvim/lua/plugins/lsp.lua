@@ -89,16 +89,6 @@ return { -- LSP Plugins
 			-- rust_analyzer = {},
 		}
 
-		-- List of tools to install with Mason at startup, if they are not installed yet.
-		-- You can add other tools to the list, and/or install additional tools with :Mason
-		local ensure_installed = vim.tbl_keys(servers or {})
-		vim.list_extend(ensure_installed, {
-			"lua_ls", -- Lua Language server
-			"stylua", -- Used to format Lua code
-		})
-
-		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-
 		for name, server in pairs(servers) do
 			server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 			vim.lsp.config(name, server)
