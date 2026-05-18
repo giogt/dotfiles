@@ -7,3 +7,11 @@
 #     /usr/bin/keychain --eval --quiet ~/.ssh/id_ed25519
 #     source ~/.keychain/${HOSTNAME}-sh
 # fi
+
+
+# Make sure `sbin` directories are in the path to use with sudo
+path=(
+  $path
+  /usr/sbin(N)
+  /sbin(N)
+)

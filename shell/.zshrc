@@ -52,3 +52,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
 else
   source_if_exists "$HOME/.config/zsh/linux.zsh"
 fi
+
+# Lima BEGIN
+#
+# Please keep this, otherwise Lima VM will keep adding it at every reboot.
+#
+# Lima END
