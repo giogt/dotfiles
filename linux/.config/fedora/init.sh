@@ -5,7 +5,7 @@
 cd ~
 
 # install base packages
-sudo dnf install -y fzf git keychain nvim stow which zoxide zsh
+sudo dnf install -y fzf git nvim stow which zoxide zsh
 
 # clone my dotfiles config
 git clone https://github.com/giogt/dotfiles.git ~/.dotfiles
