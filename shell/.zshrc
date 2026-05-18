@@ -49,4 +49,6 @@ source_if_exists "$HOME/.config/zsh/dev.zsh"
 
 if [[ "$OSTYPE" == darwin* ]]; then
   source_if_exists "$HOME/.config/zsh/macos.zsh"
+else
+  source_if_exists "$HOME/.config/zsh/linux.zsh"
 fi
