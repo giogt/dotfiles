@@ -49,6 +49,9 @@ zig = "latest"
 "cargo:jj-starship" = "latest"
 "cargo:lazyjj" = "latest"
 
+"go:golang.org/x/tools/gopls" = "latest"
+"go:golang.org/x/tools/cmd/goimports" = "latest"
+
 "npm:@earendil-works/pi-coding-agent" = "latest"
 
 "pipx:hf" = "latest" # Hugging Face CLI
@@ -56,7 +59,7 @@ zig = "latest"
 
 [env]
 
-GOENV = "{{ env.HOME }}/.config/go/env"
+GOPATH = "{{ env.HOME }}/.go"
 _.path = [
     "~/.go/bin"
 ]

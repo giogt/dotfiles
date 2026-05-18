@@ -37,6 +37,7 @@ else
 	require("config.clipboard")
 	require("config.commands")
 	require("config.diagnostics")
+	require("config.lsp-servers")
 	require("config.motions")
 	require("config.options")
 	require("config.search")
