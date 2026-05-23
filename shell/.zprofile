@@ -15,18 +15,12 @@ if [[ -z "$BROWSER" && "$OSTYPE" == darwin* ]]; then
 fi
 
 #
-# Editors
+# Default tools
 #
 
-if [[ -z "$EDITOR" ]]; then
-  export EDITOR='nvim'
-fi
-if [[ -z "$VISUAL" ]]; then
-  export VISUAL='nvim'
-fi
-if [[ -z "$PAGER" ]]; then
-  export PAGER='less'
-fi
+export EDITOR='nvim'
+export VISUAL='nvim'
+export PAGER='less'
 
 #
 # Language
@@ -65,7 +59,5 @@ path=(
 # set default less options
 #
 # -X disables mouse-wheel scrolling, remove it to enable it
-if [[ -z "$LESS" ]]; then
-  export LESS='-g -i -M -R -S -w -z-4'
-fi
+export LESS='-g -i -M -R -S -w -z-4'
 
