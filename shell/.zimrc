@@ -27,12 +27,12 @@ zmodule utility
 # Exposes how long the last command took to run to prompts.
 # zmodule duration-info
 # Exposes git repository status information to prompts.
-zmodule git-info
+# zmodule git-info
 # Formats the path to the current working directory to be used by prompts
-zmodule prompt-pwd
+# zmodule prompt-pwd
 
 # The starship prompt (requires starship to be installed: brew install starship)
-zmodule starship/starship --name starship --no-submodules   
+# zmodule starship/starship --name starship --no-submodules   
 
 # A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
 #  Using my (giogt's) fork, which simplifies it further.
