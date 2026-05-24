@@ -10,7 +10,7 @@ source_if_exists() {
 
 # Setting $EDITOR to nvim (see .zprofile) sets the shell's input mode to vi mode.
 # If we want emacs mode, we need to set it explicitly.
-set -o emacs
+bindkey -e
 
 #
 # zimfw
