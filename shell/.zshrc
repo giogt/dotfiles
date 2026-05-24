@@ -44,7 +44,7 @@ fi
 # load additional config
 #
 
-source_if_exists "$HOME/.config/zsh/core.zsh"
+source_if_exists "$HOME/.config/zsh/utility.zsh"
 source_if_exists "$HOME/.config/zsh/dev.zsh"
 
 if [[ "$OSTYPE" == darwin* ]]; then
