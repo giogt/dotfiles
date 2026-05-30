@@ -49,6 +49,7 @@ xh = "latest" # HTTP client CLI (curl modern alternative)
 yazi = "latest" # terminal file manager
 yt-dlp = "latest" # YouTube downloader
 zig = "latest"
+zls = "latest" # Zig language server
 zoxide = "latest"
 
 # "aqua:YS-L/csvlens" = "latest" # CSV viewer TUI
