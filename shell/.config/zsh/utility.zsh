@@ -50,10 +50,10 @@ if (( ${+commands[yt-dlp]} )); then
   alias youtube-download-transcript="yt-dlp --write-auto-sub --skip-download --sub-format srt"
 fi
 
-if (( ${+commands[zoxide]} )); then
-  # comment the alias below if it breaks functionality
-  alias cd="z"
-fi
+# if (( ${+commands[zoxide]} )); then
+#   # comment the alias below if it breaks functionality
+#   alias cd="z"
+# fi
 
 weather() {
   xh "wttr.in/$*"
