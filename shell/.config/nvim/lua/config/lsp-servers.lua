@@ -45,6 +45,7 @@ local _servers = {
 			},
 		},
 	},
+	zls = {},
 }
 
 M.servers = _servers
