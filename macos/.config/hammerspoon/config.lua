@@ -6,7 +6,7 @@ local _config = {
 	apps = {
 		["app.zen-browser.zen"] = {
 			name = "Zen",
-			dimensions = { w = 2000, h = 1250 },
+			dimensions = { w = 2100, h = 1325 },
 		},
 		["com.apple.MobileSMS"] = {
 			name = "Messages",
@@ -14,52 +14,56 @@ local _config = {
 		},
 		["com.brave.Browser"] = {
 			name = "Brave Browser",
-			dimensions = { w = 1800, h = 1200 },
+			dimensions = { w = 2100, h = 1325 },
 			offset = { x = 0, y = 0 },
 		},
 		["com.google.Chrome"] = {
 			name = "Google Chrome",
-			dimensions = { w = 1800, h = 1200 },
+			dimensions = { w = 2100, h = 1325 },
 			offset = { x = 0, y = 0 },
 		},
 		["com.mitchellh.ghostty"] = {
 			name = "Ghostty",
-			dimensions = { w = 1480, h = 1080 },
+			dimensions = { w = 1600, h = 1200 },
 		},
 		["com.neovide.neovide"] = {
 			name = "Neovide",
-			dimensions = { w = 1600, h = 1150 },
+			dimensions = { w = 1600, h = 1200 },
+		},
+		["com.qobuz.desktop"] = {
+			name = "Qobuz",
+			dimensions = { w = 2100, h = 1325 },
 		},
 		["com.vscodium"] = {
 			name = "VSCodium",
-			dimensions = { w = 1600, h = 1150 },
+			dimensions = { w = 1600, h = 1200 },
 		},
 		["dev.zed.Zed"] = {
 			name = "Zed",
-			dimensions = { w = 1600, h = 1150 },
+			dimensions = { w = 1600, h = 1200 },
 		},
 		["org.alacritty"] = {
 			name = "Alacritty",
-			dimensions = { w = 1480, h = 1000 },
+			dimensions = { w = 1600, h = 1200 },
 		},
 		["org.mozilla.librewolf"] = {
 			name = "LibreWolf",
-			dimensions = { w = 1800, h = 1200 },
+			dimensions = { w = 2100, h = 1325 },
 			offset = { x = 0, y = 0 },
 		},
 		["us.zoom.xos"] = {
 			name = "zoom.us",
-			dimensions = { w = 2000, h = 1250 },
+			dimensions = { w = 2100, h = 1325 },
 		},
 
 		-- Proton PWAs
 		["com.brave.Browser.app.jnpecgipniidlgicjocehkhajgdnjekh"] = {
 			name = "Proton Mail",
-			dimensions = { w = 1600, h = 1150 },
+			dimensions = { w = 1800, h = 1200 },
 		},
 		["com.brave.Browser.app.ojibjkjikcpjonjjngfkegflhmffeemk"] = {
 			name = "Proton Calendar",
-			dimensions = { w = 1600, h = 1150 },
+			dimensions = { w = 1800, h = 1200 },
 		},
 
 		-- Google PWAs

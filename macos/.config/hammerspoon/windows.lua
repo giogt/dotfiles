@@ -137,11 +137,11 @@ local function setWindowFrame(win, dimensions, offset)
 
 	local screen = win:screen():frame()
 
-	local topMargin = 5
-	local verticalShift = dimensions.h * 0.05 + 20
+	local topMargin = 12
+	local verticalShift = -5
 
 	local x = screen.x + (screen.w - dimensions.w) / 2
-	local y = screen.y + (screen.h - dimensions.h) / 2 - verticalShift
+	local y = screen.y + (screen.h - dimensions.h) / 2 + verticalShift
 
 	x = math.max(x, screen.x)
 	y = math.max(y, screen.y + topMargin)
