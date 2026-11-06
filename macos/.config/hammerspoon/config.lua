@@ -8,6 +8,14 @@ local _config = {
 			name = "Zen",
 			dimensions = { w = 2100, h = 1325 },
 		},
+		["ch.protonmail.desktop"] = {
+			name = "Proton Mail",
+			dimensions = { w = 1800, h = 1200 },
+		},
+		["com.apple.iCal"] = {
+			name = "Calendar",
+			dimensions = { w = 1800, h = 1200 },
+		},
 		["com.apple.MobileSMS"] = {
 			name = "Messages",
 			dimensions = { w = 1392, h = 1080 },
@@ -41,6 +49,11 @@ local _config = {
 		["dev.zed.Zed"] = {
 			name = "Zed",
 			dimensions = { w = 1600, h = 1200 },
+		},
+		["net.imput.helium"] = {
+			name = "Helium",
+			dimensions = { w = 2100, h = 1325 },
+			offset = { x = 0, y = 0 },
 		},
 		["org.alacritty"] = {
 			name = "Alacritty",
@@ -85,11 +98,11 @@ local _config = {
 			mod = { "alt" },
 			keys = {
 				J = "com.mitchellh.ghostty",
-				K = "com.brave.Browser",
-				L = "com.neovide.neovide",
+				K = "net.imput.helium",
+				L = "dev.zed.Zed",
 				[";"] = "com.apple.MobileSMS",
-				U = "com.brave.Browser.app.jnpecgipniidlgicjocehkhajgdnjekh", -- Proton Mail
-				I = "com.brave.Browser.app.ojibjkjikcpjonjjngfkegflhmffeemk", -- Proton Calendar
+				U = "ch.protonmail.desktop",
+				I = "com.apple.iCal",
 			},
 		},
 	},
